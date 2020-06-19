@@ -1,0 +1,75 @@
+.pressCoverage__mainWrapper {
+	background: #fafafa;
+	padding-top: 100px;
+	padding-bottom: 115px;
+	text-align: center;
+}
+
+.pressCoverage__header {
+	font-size: 3.6rem;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+.pressCoverageGrid__gridWrapper {
+	width: 75%;
+	display: -ms-inline-grid;
+	display: inline-grid;
+	grid-template-columns: repeat(3, calc(33.33333% - 1.35vw));
+	grid-gap: 2vw;
+}
+
+@media only screen and (max-width: 1050px) {
+
+	.findUs__contentWrapper,
+	.pressCoverageGrid__gridWrapper {
+		width: 90%;
+	}
+}
+
+.pressCoverageGrid__gridItem {
+	transition: box-shadow 1.3s cubic-bezier(.2, .6, .4, 1);
+}
+
+.pressCoverageGrid__gridItem {
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .05);
+	padding: 30px 30px 60px;
+	position: relative;
+}
+
+.pressCoverageGrid__header {
+	font-size: 1.4rem;
+	font-weight: 800;
+	text-align: center;
+	color: #d5333e;
+	margin-bottom: 15px;
+}
+
+.pressCoverageGrid__bodyCopy {
+	text-align: center;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+}
+
+.pressCoverageGrid__gridItem:after {
+	transition: right 1.3s cubic-bezier(.2, .6, .4, 1);
+}
+
+.pressCoverageGrid__gridItem:after {
+	content: "";
+	width: 15px;
+	height: 10px;
+	display: inline-block;
+	background: url(https://www.codigo.co/img/icons/arrow-red.svg);
+	background-size: cover;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+.pressCoverageGrid__gridItem:hover {
+	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .25);
+}

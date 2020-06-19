@@ -1,0 +1,270 @@
+.findUs__mainWrapper {
+	padding: 80px 0;
+	background: #3d2a3a;
+}
+
+.findUs__contentWrapper {
+	width: 85%;
+	margin: 0 auto;
+	position: relative;
+}
+
+@media only screen and (max-width: 1050px) {
+
+	.findUs__contentWrapper,
+	.pressCoverageGrid__gridWrapper {
+		width: 90%;
+	}
+}
+
+.findUs__copyWrapper {
+	width: 35%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+@media only screen and (max-width: 1050px) {
+	.findUs__copyWrapper {
+		width: 30%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.findUs__copyWrapper {
+		width: 100%;
+		position: relative;
+	}
+}
+
+.findUsLoc__gridWrapper {
+	max-width: 900px;
+	width: 65%;
+	display: -ms-grid;
+	display: grid;
+	float: right;
+	grid-template-columns: repeat(3, 33.33333%);
+	-ms-grid-rows: 540px;
+	grid-template-rows: 540px;
+}
+
+@media only screen and (max-width: 1050px) {
+	.findUsLoc__gridWrapper {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsLoc__gridWrapper {
+		width: 100%;
+		-ms-grid-columns: 100%;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(3, 160px);
+		grid-gap: 20px;
+	}
+}
+
+.findUs__mainHeader {
+	font-size: 3.6rem;
+	font-weight: 800;
+	color: #fff;
+}
+
+@media only screen and (max-width: 800px) {
+	.findUs__mainHeader {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+}
+
+.findUsCTA__mainWrapper {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCTA__mainWrapper {
+		position: relative;
+		bottom: auto;
+		left: auto;
+	}
+}
+
+.findUsCTA__item:not(:last-child) {
+	margin-bottom: 60px;
+}
+
+.findUsCTA__item {
+	color: #fff;
+}
+
+.findUsCTA__header {
+	font-size: 2.4rem;
+	color: #fff;
+	font-weight: 900;
+	margin-bottom: 10px;
+}
+
+.findUsCTA__bodyText {
+	font-size: 1.8rem;
+	color: #fff;
+	margin-bottom: 10px;
+	display: table;
+}
+
+.button--aLink {
+	transition: border .4s;
+}
+
+.button--aLink {
+	color: inherit;
+	border-bottom: 1px solid transparent;
+}
+
+.findUsLoc__gridItem {
+	position: relative;
+}
+
+.findUsLoc__gridItem .findUsCountry__mainWrapper {
+	overflow: hidden;
+	transition: transform .5s 0s;
+}
+
+.findUsCountry__mainWrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+}
+
+.findUsLoc__gridItem .findUsCountry__img {
+	opacity: 1;
+	transition: opacity .8s 0s, transform 1s 0s;
+}
+
+.findUsCountry__img.findUsCountry--singapore {
+	background-image: url(https://www.codigo.co/img/views/about/locations-singapore.jpg);
+}
+
+.findUsCountry__img.findUsCountry--myanmar {
+	background-image: url(https://www.codigo.co/img/views/about/locations-myanmar.jpg);
+}
+
+.findUsCountry__img.findUsCountry--vietnam {
+	background-image: url(https://www.codigo.co/img/views/about/locations-vietnam.jpg);
+}
+
+.findUsCountry__img {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	pointer-events: none;
+}
+
+.findUsCountry__wrapper--preHover {
+	position: absolute;
+	bottom: 35px;
+	left: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCountry__wrapper--preHover {
+		display: none;
+	}
+}
+
+.findUsCountry__wrapper--postHover {
+	position: absolute;
+	bottom: 25px;
+	left: 30px;
+	width: calc(100% - 60px);
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCountry__wrapper--postHover {
+		top: 50%;
+		bottom: auto;
+		transform: translateY(-50%);
+	}
+}
+
+.findUsCountry__overflowHiddenWrapper {
+	overflow: hidden;
+}
+
+.findUsLoc__gridItem .findUsCountry__wrapper--preHover .findUsCountry__headerText {
+	opacity: 1;
+	transition: transform .7s .2s, opacity .4s .3s;
+}
+
+.findUsCountry__wrapper--preHover .findUsCountry__headerText {
+	pointer-events: none;
+}
+
+.findUsCountry__headerText {
+	font-size: 3rem;
+	color: #fff;
+	font-weight: 800;
+}
+
+.findUsLoc__gridItem .findUsCountry__wrapper--postHover .findUsCountry__bodyText,
+.findUsLoc__gridItem .findUsCountry__wrapper--postHover .findUsCountry__headerText {
+	transform: translate3d(0, 50px, 0);
+	opacity: 0;
+	transition: transform 1s 0s, opacity .6s .1s;
+}
+
+.findUsCountry__bodyText {
+	font-weight: 800;
+	color: #fff;
+	line-height: 1.8rem;
+	font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+
+	.findUsLoc__gridItem .findUsCountry__wrapper--postHover .findUsCountry__bodyText,
+	.findUsLoc__gridItem .findUsCountry__wrapper--postHover .findUsCountry__headerText {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__img {
+	opacity: .7;
+	transform: scale3d(1.2, 1.2, 1);
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--postHover .findUsCountry__bodyText,
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--postHover .findUsCountry__headerText {
+	opacity: 1;
+	transform: translateZ(0);
+	transition: transform .6s cubic-bezier(.2, .6, .4, 1) .2s, opacity .8s cubic-bezier(.2, .6, .4, 1) .3s;
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--postHover .findUsCountry__bodyText {
+	transition: transform .6s cubic-bezier(.2, .6, .4, 1) .3s, opacity .8s cubic-bezier(.2, .6, .4, 1) .2s;
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--postHover .findUsCountry__bodyText,
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--postHover .findUsCountry__headerText {
+	opacity: 1;
+	transform: translateZ(0);
+	transition: transform .6s cubic-bezier(.2, .6, .4, 1) .2s, opacity .8s cubic-bezier(.2, .6, .4, 1) .3s;
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--preHover .findUsCountry__bodyText,
+.findUsLoc__gridItem:hover .findUsCountry__wrapper--preHover .findUsCountry__headerText {
+	opacity: 0;
+	transform: translate3d(0, 30px, 0);
+	transition: transform .4s cubic-bezier(.2, .6, .4, 1) .2s, opacity .8s cubic-bezier(.2, .6, .4, 1) .3s;
+}
+
+.findUsLoc__gridItem:hover .findUsCountry__mainWrapper {
+	transform: scale3d(1.1, 1.1, 1);
+	z-index: 1;
+}

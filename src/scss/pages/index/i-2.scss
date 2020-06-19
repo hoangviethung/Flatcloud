@@ -1,0 +1,39 @@
+.fl-index-2 {
+	max-width: 85%;
+	padding: 155px 0 100px;
+	margin: 0 auto;
+	@media (max-width: 1024.98px) {
+		width: 95%;
+		max-width: none;
+	}
+}
+
+.fl-index-2__title {
+	font-weight: 800;
+	font-size: 3.6rem;
+	text-align: center;
+	color: #fff;
+	line-height: 4.5rem;
+	margin-bottom: 30px;
+}
+
+.fl-index-2__grid-row {
+	width: 90%;
+	position: relative;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	@media (max-width: 1024.98px) {
+		width: 100%;
+		grid-template-columns: repeat(3, 33.33333%);
+	}
+}
+
+.fl-index-2__item {
+	max-width: 65%;
+	max-height: 145px;
+	align-self: center;
+	justify-self: center;
+	padding: 40px 0;
+	user-select: none;
+}

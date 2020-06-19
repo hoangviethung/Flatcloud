@@ -1,0 +1,120 @@
+.awards__mainWrapper {
+	width: 75%;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.awards__mainWrapper {
+		width: 90%;
+	}
+}
+
+.awards__mainHeader {
+	font-size: 3.6rem;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 70px;
+}
+
+.featuredAward__mainWrapper {
+	margin-bottom: 85px;
+}
+
+.featuredAward__item {
+	float: left;
+	width: 25%;
+}
+
+.featuredAward__copy {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.featuredAward__separator {
+	width: 10px;
+	height: 1px;
+	background: #000;
+	margin: 20px auto;
+}
+
+.featuredAward__position {
+	color: #d6a656;
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 700;
+}
+
+.trophies__mainWrapper {
+	width: 70%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.trophies__item {
+	float: left;
+	width: 33.33333%;
+}
+
+.trophies__blue {
+	background-image: url(https://www.codigo.co/img/views/about/trophy-blue.png);
+}
+
+.trophies__gold {
+	background-image: url(https://www.codigo.co/img/views/about/trophy-gold.png);
+}
+
+.trophies__silver {
+	background-image: url(https://www.codigo.co/img/views/about/trophy-silver.png);
+}
+
+.trophies__blue,
+.trophies__bronze,
+.trophies__gold,
+.trophies__silver {
+	width: 85px;
+	height: 109px;
+	margin: 0 auto 20px;
+	background-size: cover;
+}
+
+.trophies__text {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.trophies__text--boldLarger {
+	font-weight: 800;
+}
+
+@media only screen and (max-width: 600px) {
+	.trophies__mainWrapper {
+		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+
+	.trophies__blue,
+	.trophies__bronze,
+	.trophies__gold,
+	.trophies__silver {
+		width: 65px;
+		height: 83px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.trophies__text {
+		font-size: 1.5rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.trophies__text--boldLarger {
+		font-size: 2.5rem;
+	}
+}

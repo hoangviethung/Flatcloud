@@ -1,0 +1,45 @@
+@keyframes Anim_RequestForm--onboard {
+	0% {
+		transform: translate(100%);
+		box-shadow: none;
+	}
+
+	to {
+		transform: translate(0);
+		box-shadow: 0 10px 25px 2px rgba(0, 0, 0, 0.1),
+			0 10px 80px 5px rgba(0, 0, 0, 0.1);
+	}
+}
+
+@keyframes Anim_RequestForm--exit {
+	0% {
+		transform: translate(0);
+		box-shadow: 0 10px 25px 2px rgba(0, 0, 0, 0.1),
+			0 10px 80px 5px rgba(0, 0, 0, 0.1);
+	}
+
+	to {
+		transform: translate(100%);
+		box-shadow: none;
+	}
+}
+
+@keyframes AnimPTag--onBoard {
+	0% {
+		transform:skewY(40deg) translateY(50px)
+	}
+
+	to {
+		transform: skewY(0) translate(0)
+	}
+}
+
+@keyframes AnimPTag--exit {
+	0% {
+		transform: skewY(0) translate(0)
+	}
+
+	to {
+		transform: skewY(40deg) translateY(50px)
+	}
+}

@@ -1,0 +1,107 @@
+header
+	.fl-header__container
+		.row.no-gutters.ai-c
+			.fl-header__logo
+				a(href="/")
+					img(src="./assets/logo.svg", alt="")
+			.fl-header__navigation
+				nav.fl-header__nav-list
+					.nav-item
+						a.nav-link(href="work.html") Work
+					.nav-item
+						a.nav-link(href="#") Solutions
+					.nav-item
+						a.nav-link(href="services.html") Services
+					.nav-item
+						a.nav-link(href="about.html") About us
+					.nav-item
+						a.nav-link(href="#") Blog
+					.btn.fl-header__request-toggle.nav-item
+						span.nav-link Request a quote
+					.nav-item.mobile
+						a.nav-link(href="#") Let's chat
+				nav.fl-header__social.mobile
+					a.fl-header__social-item(href='#', target='_blank')
+						img(src='./assets/icons/social-facebook-white.svg', width='12', height='22')
+					a.fl-header__social-item(href='#', target='_blank')
+						img(src='./assets/icons/social-twitter-white.svg', width='23', height='18')
+					a.fl-header__social-item(href='#', target='_blank')
+						img(src='./assets/icons/social-instagram-white.svg', width='21', height='19')
+					a.fl-header__social-item(href='#', target='_blank')
+						img(src='./assets/icons/social-linkedIn-white.svg', width='20', height='20')
+			.fl-header__navigation-hamburger.mobile
+				span.stroke-element
+				span.stroke-element
+				span.stroke-element
+				span.stroke-element
+	
+.fl-modal-request
+	.fl-modal-request__close
+		img(src="./assets/icons/btn-close.svg", alt="")
+	.fl-modal-request__wrapper
+		.fl-modal-request__header
+			.fl-modal-container
+				h1.title Request a quote
+				p.description Get a ballpark costing on the product or idea you want to build. Be specific to get a more concise cost and timeline.
+				p.note *MANDATORY FIELDS
+		form.fl-modal-request__form.fl-modal-container
+			.form-group
+				label.form-group-label What do you want to build? *
+				.row.no-gutters
+					.form-input.col-4
+						label 
+							input.whatdo(type="checkbox")
+							.form-input--checkbox
+							span Mobile App
+					.form-input.col-4
+						label 
+							input.whatdo(type="checkbox")
+							.form-input--checkbox
+							span Website
+					.form-input.col-4
+						label 
+							input#not-sure(type="checkbox")
+							.form-input--checkbox
+							span I'm not sure yet
+			.form-group
+				label.form-group-label What are the objectives, requirements and functionalities of this product? *
+				textarea.form-control.form-control--textarea(placeholder="You can list down everything in point form or just paragraphs. It’s completely up to you. The more details we get, the more we can understand what you want to achieve.")
+			.form-group
+				label.form-group-label Do you have a budget? *
+				input.form-control.form-control--text(placeholder="What's your estimated cost?" type="text")
+			.form-group
+				label.form-group-label Estimated launch date
+				input.form-control.form-control--text(placeholder="Deadline?" type="text")
+			.form-group
+				label.form-group-label How do we get in touch?
+				input.form-control.form-control--text(placeholder="Your name *" type="text")
+				input.form-control.form-control--text(placeholder="Company" type="text")
+				input.form-control.form-control--text(placeholder="Email Address *" type="email")
+				input.form-control.form-control--text(placeholder="Contact no *" type="text")
+			.form-group
+				label.form-group-label How did you find us? *
+				.row.no-gutters
+					.form-input.col-4
+						label 
+							input(type="checkbox") 
+							.form-input--checkbox
+							span Search
+					.form-input.col-4
+						label 
+							input(type="checkbox") 
+							.form-input--checkbox
+							span Word of mouth
+					.form-input.col-4
+						label 
+							input(type="checkbox") 
+							.form-input--checkbox
+							span Social Media
+					.form-input.col-4
+						label 
+							input#reason-other(type="checkbox")
+							.form-input--checkbox
+							span Others
+				input.form-control.form-control--text#reason-other-input(type="text")
+			.form-group.form-button
+				button.btn.fl-modal-request__submit(type="submit") 
+					span Submit

@@ -1,0 +1,67 @@
+.aboutUsMasthead__mainWrapper {
+	width: 75%;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 225px;
+	padding-bottom: 125px;
+
+	@media (max-width: 600px) {
+		width: 85%;
+		padding-top: 195px;
+		padding-bottom: 60px;
+	}
+}
+
+.AboutUsOnboardAnim__heroCopy {
+	animation-name: AboutUsOnboardAnim;
+	animation-fill-mode: backwards;
+	animation-duration: 1.95s;
+	animation-delay: .2s;
+	animation-timing-function: cubic-bezier(.2, 1, .3, 1);
+}
+
+.aboutUsMasthead__header {
+	font-size: 6.2rem;
+	font-weight: 800;
+	margin-bottom: 10px;
+
+	@media (max-width: 600px) {
+		font-size: 15vw;
+	}
+}
+
+.color--red {
+	color: #d5333e !important;
+}
+
+.AboutUsOnboardAnim__bodyCopy {
+	animation-name: AboutUsOnboardAnim;
+	animation-fill-mode: backwards;
+	animation-duration: 1.95s;
+	animation-delay: .3s;
+	animation-timing-function: cubic-bezier(.2, 1, .3, 1);
+}
+
+.aboutUsMasthead__icoSpeaker {
+	width: 15px;
+	height: 21px;
+	background: url(https://www.codigo.co/img/icons/ico-speaker.svg);
+	background-size: cover;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 10px;
+}
+
+.aboutUsMasthead__bodyCopy {
+	font-size: 1.8rem;
+	display: inline-block;
+}
+
+.aboutUsMasthead__copy-bodyDescription {
+	line-height: 1.6;
+}
+
+.aboutUsMasthead__bodyDescription {
+	margin-top: 30px;
+	margin-bottom: 5px;
+}
