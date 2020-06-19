@@ -2,3 +2,7 @@
 @import 'i-2';
 @import 'i-3';
 @import 'i-4';
+
+body.index-page {
+	background-color: map-get($color, main);
+}

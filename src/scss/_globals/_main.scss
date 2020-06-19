@@ -185,10 +185,6 @@ footer {
 	}
 }
 
-main {
-	@extend .clearfix;
-}
-
 .desktop {
 	@media (max-width: 1024.98px) {
 		display: none !important;

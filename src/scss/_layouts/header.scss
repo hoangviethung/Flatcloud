@@ -1,5 +1,4 @@
 header {
-	background-color: map-get($color, main);
 	position: fixed;
 	z-index: 100;
 	top: 0;
@@ -59,7 +58,6 @@ header {
 				content: '';
 				width: 0;
 				height: 1px;
-				background: #fff;
 				display: inline-block;
 				position: absolute;
 				top: 100%;
@@ -81,8 +79,11 @@ header {
 	}
 	.nav-link {
 		font-size: 1.4rem;
-		color: white;
 		text-decoration: none;
+		color: white;
+		&.active {
+			font-weight: 700;
+		}
 	}
 
 	@media (max-width: 1024.98px) {
@@ -143,7 +144,7 @@ header {
 		opacity: 0;
 		visibility: hidden;
 		transition-delay: 0.3s;
-		transition: opacity .3s cubic-bezier(.2,1,.2,1);
+		transition: opacity 0.3s cubic-bezier(0.2, 1, 0.2, 1);
 		&.active {
 			transition-delay: 0s;
 			opacity: 1;
@@ -237,11 +238,64 @@ header {
 		padding: 17px 22px;
 		border-radius: 30px;
 		display: inline-block;
-		color: white;
 		cursor: pointer;
+		.nav-link {
+			color: white !important;
+		}
 		&:hover {
 			transform: scale3d(1.05, 1.05, 1.05);
 			transition: transform 0.3s cubic-bezier(0.4, 0.6, 0.6, 1);
+		}
+	}
+}
+
+body {
+	&:not(.index-page) {
+		header {
+			background-color: map-get($color, white);
+		}
+		.fl-header__logo {
+			.fl-header__logo--white {
+				display: none !important;
+			}
+		}
+		@media (min-width: 1025px) {
+			.fl-header__nav-list {
+				.nav-link {
+					color: map-get($color, black);
+				}
+				.nav-item {
+					&:not(.fl-header__request-toggle) {
+						&:before {
+							background: map-get($color, black);
+						}
+					}
+				}
+			}
+		}
+	}
+	&.index-page {
+		header {
+			background-color: map-get($color, main);
+		}
+		.fl-header__logo {
+			.fl-header__logo--red {
+				display: none !important;
+			}
+		}
+		@media (min-width: 1025px) {
+			.fl-header__nav-list {
+				.nav-item {
+					&:not(.fl-header__request-toggle) {
+						&:before {
+							background: map-get($color, white);
+						}
+					}
+				}
+				.nav-link {
+					color: white;
+				}
+			}
 		}
 	}
 }

@@ -2,14 +2,16 @@ header
 	.fl-header__container
 		.row.no-gutters.ai-c
 			.fl-header__logo
-				a(href="/")
+				a.fl-header__logo--white(href="/")
 					img(src="./assets/logo.svg", alt="")
+				a.fl-header__logo--red(href="/")
+					img(src="./assets/logo-red.svg", alt="")
 			.fl-header__navigation
 				nav.fl-header__nav-list
 					.nav-item
 						a.nav-link(href="work.html") Work
 					.nav-item
-						a.nav-link(href="#") Solutions
+						a.nav-link.active(href="#") Solutions
 					.nav-item
 						a.nav-link(href="services.html") Services
 					.nav-item
