@@ -4,6 +4,9 @@
 	position: relative;
 	padding-top: 225px;
 	overflow: hidden;
+	@media (max-width: 767.98px) {
+		padding-top: 195px;
+	}
 }
 .Services__copyWrapper {
 	width: 65%;

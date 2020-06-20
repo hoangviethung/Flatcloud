@@ -1,3 +1,5 @@
+// Import Libraries
+import MoveElement from './lib/MoveElement';
 // define variables
 const body = document.querySelector('body');
 const main = document.querySelector('main');
@@ -193,14 +195,23 @@ function Work_FilterToggle() {
 
 function WorkDetail_Slider() {
 	$('.WorkDetailsHeroSlider__mainWrapper').slick({
-		dots: !0,
-		infinite: !0,
-		speed: 200,
-		arrows: !1,
-		autoplay: !0,
-		fade: !0,
-		autoplaySpeed: 3e3,
-		pauseOnHover: !1,
+		dots: true,
+		infinite: true,
+		speed: 300,
+		arrows: false,
+		autoplay: true,
+		fade: true,
+		autoplaySpeed: 3000,
+		pauseOnHover: true,
+	});
+}
+
+function WorkDetail_MobileMoveElement() {
+	return new MoveElement('.projectDetails__visualWrapper', {
+		mobileNode: '.projectDetails__mainHeader',
+		mobileMethod: 'insertAfter',
+		desktopMethod: '.projectDetails__copyWrapper',
+		desktopNode: 'insertAfter',
 	});
 }
 
@@ -242,11 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (Work_FilterToggleButton) {
 		Work_FilterToggle();
 	}
+	WorkDetail_Slider();
+
+	WorkDetail_MobileMoveElement();
 });
 
-window.addEventListener('load', function () {
-	WorkDetail_Slider();
-});
+window.addEventListener('load', function () {});
 
 window.addEventListener('scroll', () => {
 	if (Work_GridWrapper) {

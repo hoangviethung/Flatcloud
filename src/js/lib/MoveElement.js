@@ -63,7 +63,7 @@ export default class MoveElement {
 		};
 		if (!this.selectorNode) {
 			return (() => {
-				console.log('Selector not found');
+				console.log(`${this.selector} not found`);
 			})();
 		}
 		return (() => {
