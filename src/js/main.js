@@ -1,5 +1,6 @@
 // Import Libraries
 import MoveElement from './lib/MoveElement';
+import Loading from './lib/Loading';
 // define variables
 const body = document.querySelector('body');
 const main = document.querySelector('main');
@@ -234,6 +235,8 @@ document.onkeyup = function (e) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+	Loading();
+
 	if (pageClassDefine) {
 		addClassBody();
 	}

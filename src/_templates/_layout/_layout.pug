@@ -12,15 +12,16 @@ html(lang="en")
 		link(rel="stylesheet", href="./css/main.min.css")
 	body
 		block loading
+			include _loading
 		//- main content
 		block header
-			include _header.pug
+			include _header
 		block banner,breadcrumb
 		main.clear-fix
 			block main
 			#js-page-verify(class=bodyClass hidden)
 		block footer
-			include _footer.pug
+			include _footer
 		//- end main content
 		//- include scripts
 		//- script(type="text/javascript", src='https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3')

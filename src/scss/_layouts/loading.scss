@@ -1,0 +1,38 @@
+.PageTransitionsPreloader__mainWrapper {
+	overflow: hidden;
+	background-color: map-get($color, white);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+	opacity: 1;
+	&.PageTransitionsPreloader__mainWrapper--hidden {
+		opacity: 0;
+	}
+}
+
+.PageTransitions__mainWrapperAnimation--onboard {
+	animation-name: pageTransAnim-onboard;
+	animation-timing-function: cubic-bezier(0.4, 0.1, 0.1, 1);
+	animation-duration: 0.75s;
+	animation-fill-mode: backwards;
+}
+
+.svgProgressBar__rect {
+	width: 0%;
+	transition: width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+	&.background {
+		fill: map-get($color, main);
+	}
+	&.text {
+		fill: map-get($color, white);
+	}
+}
+.PageTransitionsPreloader__heroCopy {
+	&.active {
+		g {
+			fill: map-get($color, white);
+		}
+	}
+}
