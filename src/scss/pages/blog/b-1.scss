@@ -1,3 +1,11 @@
+.Blog__mainWrapper {
+	width: 75%;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 190px;
+	padding-bottom: 315px;
+}
+
 .blogArticle__mainWrapper {
 	width: 73%;
 	float: right;
@@ -8,6 +16,9 @@
 	padding: 18px 0;
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
+	&:last-child {
+		border-top: none;
+	}
 }
 
 .blogPost__mainWrapper {
@@ -21,6 +32,51 @@
 	padding-top: 105px;
 }
 
+.blogPost__titleText {
+	width: 85%;
+	font-size: 2.4rem;
+	font-weight: 900;
+	text-align: center;
+	margin: 0 auto 95px;
+	position: relative;
+}
+
+.blogPost__tagWrapper {
+	padding-bottom: 30px;
+}
+
+.blogPost__copyWrapper {
+	font-size: 1.6rem;
+	line-height: 2.6rem;
+	font-weight: 300;
+	margin-bottom: 55px;
+	display: block;
+	p {
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+		font-weight: 300;
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 500;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	a {
+		color: #d5333e;
+		font-weight: 500;
+	}
+}
+
+// Aside
 .blogListing__mainWrapper {
 	width: 25%;
 	max-width: 300px;
@@ -68,6 +124,51 @@
 	}
 }
 
+@media only screen and (max-width: 1300px) {
+	.Blog__mainWrapper {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.Blog__mainWrapper {
+		width: 90%;
+		display: flex;
+		flex-flow: column;
+		padding-top: 150px;
+		padding-bottom: 100px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.blogPost__copyWrapper {
+		width: 95%;
+		margin: 0 auto 55px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.blogPost__tagWrapper {
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.blogPost__titleText {
+		font-size: 7vw;
+		line-height: 8vw;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.blogArticle__mainWrapper {
+		width: 100%;
+		max-width: none;
+		order: 1;
+	}
+}
+
 @media only screen and (max-width: 800px) {
 	.blogListing__mainWrapper {
 		width: 100%;
@@ -75,11 +176,17 @@
 		order: 2;
 		float: none;
 	}
-	.blogArticle__mainWrapper {
-		width: 100%;
-		max-width: none;
-		order: 1;
+}
+@media only screen and (max-width: 600px) {
+	.blogPost__titleText {
+		font-size: 8vw;
+		line-height: 10vw;
+		padding-bottom: 50px;
+		margin-bottom: 0;
 	}
+}
+
+@media only screen and (max-width: 600px) {
 	.blogPost__mainWrapper {
 		overflow: hidden;
 		padding-top: 50px;
