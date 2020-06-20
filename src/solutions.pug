@@ -1,0 +1,13 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Solutions';
+	- let bodyClass = 'solutions-page';
+
+block loading
+	include _templates/_layout/_loading
+block banner,breadcrumb
+block main
+	include _templates/solutions/s-1
+block scripts
+	
