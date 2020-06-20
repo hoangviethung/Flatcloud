@@ -19,25 +19,45 @@
 	grid-template-columns: repeat(3, calc(33.33333% - 1.35vw));
 	grid-gap: 2vw;
 }
-
-@media only screen and (max-width: 1050px) {
-
-	.findUs__contentWrapper,
-	.pressCoverageGrid__gridWrapper {
-		width: 90%;
-	}
+.pressCoverageSlider__mainWrapper {
+	margin: 0 auto;
+	overflow: hidden;
 }
 
 .pressCoverageGrid__gridItem {
-	transition: box-shadow 1.3s cubic-bezier(.2, .6, .4, 1);
+	transition: box-shadow 1.3s cubic-bezier(0.2, 0.6, 0.4, 1);
 }
 
 .pressCoverageGrid__gridItem {
 	background: #fff;
 	border-radius: 5px;
-	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .05);
+	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05);
 	padding: 30px 30px 60px;
 	position: relative;
+	&:after {
+		transition: right 1.3s cubic-bezier(0.2, 0.6, 0.4, 1);
+	}
+	&:after {
+		content: '';
+		width: 15px;
+		height: 10px;
+		display: inline-block;
+		background: url(https://www.codigo.co/img/icons/arrow-red.svg);
+		background-size: cover;
+		position: absolute;
+		bottom: 30px;
+		right: 30px;
+	}
+	&:hover {
+		box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+	}
+	@media (max-width: 800px) {
+		width: 90% !important;
+		min-height: 200px;
+		display: block !important;
+		margin: 0 auto 30px;
+		padding: 30px 10% 60px;
+	}
 }
 
 .pressCoverageGrid__header {
@@ -54,22 +74,9 @@
 	line-height: 2.8rem;
 }
 
-.pressCoverageGrid__gridItem:after {
-	transition: right 1.3s cubic-bezier(.2, .6, .4, 1);
-}
-
-.pressCoverageGrid__gridItem:after {
-	content: "";
-	width: 15px;
-	height: 10px;
-	display: inline-block;
-	background: url(https://www.codigo.co/img/icons/arrow-red.svg);
-	background-size: cover;
-	position: absolute;
-	bottom: 30px;
-	right: 30px;
-}
-
-.pressCoverageGrid__gridItem:hover {
-	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .25);
+@media only screen and (max-width: 1050px) {
+	.findUs__contentWrapper,
+	.pressCoverageGrid__gridWrapper {
+		width: 90%;
+	}
 }

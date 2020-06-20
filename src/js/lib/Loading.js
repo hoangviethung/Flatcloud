@@ -27,17 +27,12 @@ function Loading() {
 		let progressBarText = loading.querySelector(
 			'.svgProgressBar__rect.text',
 		);
-		// let progressPercentage = loading.querySelector('#progress-percentage');
 		let n = Math.round((100 / imagesLength) * counter);
 
 		if (progressBarBackground && progressBarText) {
 			progressBarBackground.style.width = `${n}%`;
 			progressBarText.style.width = `${n}%`;
 		}
-		// if (progressPercentage) {
-		// 	progressPercentage.innerHTML = `${n}`;
-		// }
-		console.log(counter);
 
 		if (counter === imagesLength) {
 			return turnOffLoadingScreen();

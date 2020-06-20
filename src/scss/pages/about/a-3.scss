@@ -21,11 +21,25 @@
 
 .featuredAward__mainWrapper {
 	margin-bottom: 85px;
+	&.slickCarousel {
+		.slick-dots {
+			width: 100%;
+			text-align: center;
+			z-index: 1;
+		}
+	}
+	@media (max-width: 980px) {
+		overflow: hidden;
+		margin-bottom: 50px;
+	}
 }
 
 .featuredAward__item {
 	float: left;
 	width: 25%;
+	@media (max-width: 980px) {
+		padding-bottom: 50px;
+	}
 }
 
 .featuredAward__copy {
@@ -97,7 +111,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-
 	.trophies__blue,
 	.trophies__bronze,
 	.trophies__gold,

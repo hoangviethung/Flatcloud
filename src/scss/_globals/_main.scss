@@ -196,3 +196,36 @@ footer {
 		display: none !important;
 	}
 }
+.slickCarousel {
+	.slick-slide {
+		float: left;
+		position: relative;
+	}
+	.slick-dots {
+		width: 100%;
+		text-align: center;
+		z-index: 1;
+	}
+	.slick-dots {
+		li {
+			display: inline-block;
+			&:not(:last-child) {
+				margin-right: 13px;
+			}
+			button {
+				font-size: 0;
+				width: 10px;
+				height: 10px;
+				background: #cacaca;
+				cursor: pointer;
+				border-radius: 50%;
+				outline: none;
+			}
+			&.slick-active {
+				button {
+					background-color: #d5333e;
+				}
+			}
+		}
+	}
+}

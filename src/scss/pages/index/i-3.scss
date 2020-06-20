@@ -6,6 +6,11 @@
 	@media (max-width: 1024.98px) {
 		width: 85%;
 	}
+	&.fl-index-3--desktop {
+		@media (max-width: 980px) {
+			display: none !important;
+		}
+	}
 }
 
 .fl-index-3__item-wrapper {
@@ -33,7 +38,7 @@
 
 .fl-index-3__item--content {
 	width: 50%;
-    z-index: 2;
+	z-index: 2;
 	position: absolute;
 	top: 50%;
 	&.fl-index-3__item--content--pushRight {
@@ -85,4 +90,104 @@
 	font-size: 1.8rem;
 	line-height: 3.2rem;
 	margin-bottom: 50px;
+}
+
+.fl-index-Carousel__mainWrapper {
+	position: relative;
+	overflow: hidden;
+	display: -ms-grid;
+	display: grid;
+	justify-content: center;
+	margin-bottom: 80px;
+	@media (min-width: 981px) {
+		display: none !important;
+	}
+}
+.FeaturedCarousel__slickCarousel {
+	.slick-dots {
+		position: absolute;
+		top: 23rem;
+	}
+	&.slickCarousel {
+		.slick-slide {
+			float: left;
+			position: relative;
+		}
+		.slick-dots {
+			width: 100%;
+			text-align: center;
+			z-index: 1;
+			li {
+				display: inline-block;
+				&:not(:last-child) {
+					margin-right: 13px;
+				}
+				button {
+					font-size: 0;
+					width: 10px;
+					height: 10px;
+					background: #cacaca;
+					cursor: pointer;
+					border-radius: 50%;
+					outline: none;
+				}
+				&.slick-active {
+					button {
+						background-color: #d5333e;
+					}
+				}
+			}
+		}
+	}
+}
+.FeaturedCarousel__maskedCircleWrapper {
+	width: 110vw;
+	height: 110vw;
+	border-radius: 50%;
+	transition: background-color 0.75s ease 0s;
+	overflow: hidden;
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+	@media (max-width: 750px) {
+		width: 150vw;
+		height: 150vw;
+	}
+}
+.FeaturedCarousel__textHeader {
+	font-size: 3.5rem;
+	font-weight: 800;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-top: 60px;
+}
+.FeaturedCarousel__textSubHeader {
+	font-size: 2.3rem;
+	font-weight: 800;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.FeaturedCarousel__CTA {
+	display: table;
+	margin: 0 auto 30px;
+}
+.FeaturedCarousel__heroImg {
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+@media only screen and (max-width: 750px) {
+	.FeaturedCarousel__slickCarousel {
+		.slick-dots {
+			top: 20rem;
+		}
+	}
+	.FeaturedCarousel__textHeader {
+		font-size: 2.4rem;
+		margin-bottom: 10px;
+	}
+	.FeaturedCarousel__textSubHeader {
+		font-size: 1.6rem;
+	}
 }
