@@ -89,6 +89,7 @@
 		position: relative;
 		bottom: auto;
 		left: auto;
+		margin-bottom: 25px;
 	}
 }
 
@@ -267,4 +268,56 @@
 .findUsLoc__gridItem:hover .findUsCountry__mainWrapper {
 	transform: scale3d(1.1, 1.1, 1);
 	z-index: 1;
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCountry__wrapper--postHover .findUsCountry__headerText {
+		font-size: 2rem;
+		text-align: center;
+		opacity: 1;
+	}
+}
+
+.findUsCountry__wrapper--postHover .findUsCountry__headerText {
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCountry__wrapper--postHover .findUsCountry__bodyText {
+		width: 80%;
+		max-width: 250px;
+		text-align: center;
+		font-size: 1.6rem;
+		font-weight: 400;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsLoc__gridItem:hover .findUsCountry__mainWrapper {
+		transform: scale3d(1.05, 1.05, 1);
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCountry__img {
+		background-position: 50%;
+		opacity: .7 !important;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.findUsCTA__item {
+		div {
+			text-align: center;
+		}
+	}
+
+	.findUsCTA__header {
+		text-align: center;
+	}
+
+	.findUsCTA__bodyText {
+		margin: 0 auto;
+	}
 }
