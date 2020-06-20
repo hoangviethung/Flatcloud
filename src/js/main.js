@@ -191,6 +191,19 @@ function Work_FilterToggle() {
 	});
 }
 
+function WorkDetail_Slider() {
+	$('.WorkDetailsHeroSlider__mainWrapper').slick({
+		dots: !0,
+		infinite: !0,
+		speed: 200,
+		arrows: !1,
+		autoplay: !0,
+		fade: !0,
+		autoplaySpeed: 3e3,
+		pauseOnHover: !1,
+	});
+}
+
 document.onkeyup = function (e) {
 	if (
 		(e = e || window.event).altKey &&
@@ -231,7 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 });
 
-window.addEventListener('load', function () {});
+window.addEventListener('load', function () {
+	WorkDetail_Slider();
+});
 
 window.addEventListener('scroll', () => {
 	if (Work_GridWrapper) {

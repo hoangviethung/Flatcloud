@@ -1,0 +1,186 @@
+.CTAgrid__mainWrapper {
+	display: -ms-grid;
+	display: grid;
+	grid-template-columns: repeat(3, 33.33333%);
+}
+.CTAgrid__gridGroupWrapper {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 25px 30px 15px auto 25px;
+	grid-template-columns: 25px 30px 15px auto 25px;
+	-ms-grid-rows: 20px 15px 15px 20px;
+	grid-template-rows: 20px 15px 15px 20px;
+	border: 1px solid #dad6da;
+	margin-bottom: 50px;
+	&:not(:first-child) {
+		border-left: none;
+	}
+}
+.CTAgrid__iconItem {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 2;
+	-ms-grid-row-span: 2;
+	grid-row: 2 / span 2;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	&.iconItem__appStore {
+		background-image: url(https://www.codigo.co/img/ui/ico-app_store.png);
+	}
+	&.iconItem__googlePlay {
+		background-image: url(https://www.codigo.co/img/ui/ico-google_play-store.png);
+	}
+	&.iconItem__web {
+		background-image: url(https://www.codigo.co/img/ui/ico-web.png);
+	}
+}
+.CTAgrid__labelItem {
+	font-size: 0.9rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	-ms-grid-row-align: center;
+	align-self: center;
+	-ms-grid-column: 4;
+	grid-column: 4;
+	-ms-grid-row: 2;
+	grid-row: 2;
+}
+.CTAgrid__copyItem {
+	font-size: 1.4rem;
+	font-weight: 700;
+	-ms-grid-row-align: center;
+	align-self: center;
+	-ms-grid-column: 4;
+	grid-column: 4;
+	-ms-grid-row: 3;
+	grid-row: 3;
+}
+.projectDetails__mainHeader {
+	font-size: 6.4rem;
+	font-weight: 800;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.projectDetails__mainWrapper {
+	width: 100%;
+	display: inline-block;
+}
+.projectDetails__copyWrapper {
+	width: 50%;
+	max-width: 540px;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	float: left;
+}
+.projectDetails__visualWrapper {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+}
+.projectKeyFeatures__mainWrapper {
+	width: 100%;
+	display: inline-block;
+}
+.projectKeyFeatures__labelWrapper {
+	width: 40%;
+	max-width: 160px;
+	float: left;
+}
+.projectKeyFeatures__labelCopy {
+	font-weight: 800;
+	color: #272727;
+}
+.projectKeyFeatures__keyFeatureWrapper {
+	width: 60%;
+	float: left;
+	border-left: 1px solid #dad6da;
+	padding-left: 25px;
+}
+.projectKeyFeatures__keyFeatureCopyFormatter {
+	ul {
+		list-style: none;
+	}
+	li {
+		font-size: 1.6rem;
+		line-height: 2rem;
+		margin-bottom: 15px;
+	}
+}
+.WorkDetails__mainWrapper {
+	width: 85%;
+	min-height: 100vh;
+	margin: 0 auto;
+	position: relative;
+}
+.is--loadedState {
+	&.CTAgrid__gridGroupWrapper,
+	&.projectDetails__bodyCopy,
+	&.projectDetails__mainHeader,
+	&.projectKeyFeatures__mainWrapper {
+		animation-name: workDetailsOnboardTextSlideYIn;
+		animation-duration: 2s;
+		animation-fill-mode: backwards;
+		animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1);
+	}
+
+	&.projectDetails__bodyCopy {
+		animation-delay: 0.7s;
+	}
+	&.projectKeyFeatures__mainWrapper {
+		animation-delay: 1s;
+	}
+	&.CTAgrid__gridGroupWrapper {
+		animation-delay: 0.4s;
+	}
+	&.WorkDetailsHeroSlider__ballBG {
+		animation-name: workDetailsBallBGOnboard;
+		animation-duration: 0.8s;
+		animation-fill-mode: backwards;
+		animation-timing-function: cubic-bezier(0.52, 0.2, 0.415, 1.32);
+		transform-origin: top left;
+	}
+	&.WorkDetailsHeroSlider__mainWrapper .slick-slide {
+		animation-name: workDetailsCarouselOnboard;
+		animation-delay: 0.7s;
+		animation-duration: 1.7s;
+		animation-fill-mode: backwards;
+		animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1);
+	}
+}
+
+.projectDetails__bodyCopy {
+	font-size: 1.6rem;
+	line-height: 2.8rem;
+	color: #272727;
+	margin-bottom: 70px;
+}
+
+.WorkDetailsHeroSlider__ballBG {
+	width: 50vw;
+	height: 50vw;
+	max-width: 580px;
+	max-height: 580px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	position: relative;
+}
+.slickCarousel .slick-slide {
+	float: left;
+	position: relative;
+}
+
+.WorkDetailsHeroSlider__mainWrapper {
+	width: 50vw;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}

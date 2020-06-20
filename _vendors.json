@@ -1,10 +1,15 @@
 {
 	"fonts": ["src/fonts/**"],
 
-	"js": ["node_modules/lazysizes/lazysizes.js"],
+	"js": [
+		"node_modules/jquery/dist/jquery.js",
+		"node_modules/lazysizes/lazysizes.js",
+		"node_modules/slick-carousel/slick/slick.js"
+	],
 
 	"css": [
 		"node_modules/bootstrap/dist/css/bootstrap-reboot.css",
-		"node_modules/bootstrap/dist/css/bootstrap-grid.css"
+		"node_modules/bootstrap/dist/css/bootstrap-grid.css",
+		"node_modules/slick-carousel/slick/slick.css"
 	]
 }
