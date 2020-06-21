@@ -229,3 +229,10 @@ footer {
 		}
 	}
 }
+
+.wow {
+	opacity: 0;
+	&[style] {
+		opacity: 1;
+	}
+}
