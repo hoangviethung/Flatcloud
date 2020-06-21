@@ -1,6 +1,7 @@
 // Import Libraries
 import MoveElement from './lib/MoveElement';
 import Loading from './lib/Loading';
+import TypeIt from 'typeit';
 // define variables
 const body = document.querySelector('body');
 const main = document.querySelector('main');
@@ -290,6 +291,95 @@ function WorkDetail_MobileMoveElement() {
 	});
 }
 
+function Index_TypingEffect() {
+	const SmallTextWrapper = Array.from(
+		document.querySelectorAll(
+			'.LandingTypewrite__gridContentNestedWrapper--2 .LandingMastSubheader__textFormat',
+		),
+	);
+	const TypeItText = document.querySelector(
+		'.Typist .LandingMastHeader--FirstCharacter',
+	);
+	const TypeItProgressBar = document.querySelector(
+		'.LandingProgressBar__progressLevel',
+	);
+	let sentencesArray = [
+		'Create<br>Bridges.',
+		'Build<br>Digital.',
+		'Make<br>Partners.',
+		'Make<br>Senses.',
+	];
+	let i = 1;
+
+	if (TypeItProgressBar) {
+		TypeItProgressBar.classList.add('AnimLandingProgressBar');
+	}
+	setTimeout(() => {
+		if (TypeItProgressBar) {
+			TypeItProgressBar.classList.remove('AnimLandingProgressBar');
+		}
+		SmallTextWrapper.forEach((item) => {
+			item.classList.add('hidden');
+		});
+		if (TypeItText) {
+			TypeItText.innerHTML = '';
+		}
+		let indexCharacterEffect = new TypeIt(
+			'.Typist .LandingMastHeader--FirstCharacter',
+			{
+				speed: 50,
+				loop: true,
+				loopDelay: 0,
+				cursor: false,
+				strings: '',
+				beforeString: async (step, instance) => {
+					SmallTextWrapper.forEach((item, itemIndex) => {
+						if (itemIndex == i) {
+						} else {
+							item.classList.add('hidden');
+						}
+					});
+					if (TypeItProgressBar) {
+						TypeItProgressBar.classList.remove(
+							'AnimLandingProgressBar',
+						);
+						setTimeout(() => {
+							TypeItProgressBar.classList.add(
+								'AnimLandingProgressBar',
+							);
+						}, 100);
+					}
+
+					SmallTextWrapper.forEach((item, itemIndex) => {
+						item.classList.remove('LandingSubheader--onboard');
+					});
+				},
+				afterString: async () => {
+					SmallTextWrapper.forEach((item, itemIndex) => {
+						if (itemIndex == i) {
+							item.classList.remove('hidden');
+							item.classList.add('LandingSubheader--onboard');
+						} else {
+							item.classList.remove('LandingSubheader--onboard');
+						}
+					});
+					i++;
+					if (i >= sentencesArray.length) {
+						i = 0;
+					}
+				},
+			},
+		);
+		sentencesArray.forEach((sentences, index) => {
+			indexCharacterEffect
+				.type(sentencesArray[index])
+				.pause(2500)
+				.delete();
+		});
+		indexCharacterEffect.go();
+	}, 3000);
+}
+
 document.onkeyup = function (e) {
 	if (
 		(e = e || window.event).altKey &&
@@ -309,7 +399,9 @@ document.onkeyup = function (e) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-	Loading();
+	Loading(() => {
+		Index_TypingEffect();
+	});
 
 	if (pageClassDefine) {
 		addClassBody();

@@ -1,0 +1,157 @@
+.LandingTypewrite__mainWrapper {
+	width: 87.5%;
+	margin: 0 auto;
+	position: relative;
+	display: table;
+}
+
+.LandingTypewrite__gridWrapper {
+	height: 100vh;
+	min-height: 50vw;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-rows: auto -webkit-min-content auto;
+	-ms-grid-rows: auto min-content auto;
+	grid-template-rows: auto -webkit-min-content auto;
+	grid-template-rows: auto min-content auto;
+	-ms-grid-columns: 65% 5% 20% 10%;
+	grid-template-columns: 65% 5% 20% 10%;
+	padding-top: 25vh;
+}
+.LandingTypewrite__gridContentNestedWrapper--1 {
+	min-height: 35vw;
+	-ms-grid-row: 2;
+	grid-row: 2;
+}
+.LandingTypewrite__gridContentNestedWrapper--2 {
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 2;
+	grid-row: 2;
+	-ms-grid-row-align: end;
+	align-self: end;
+	padding-bottom: 3.6vw;
+}
+.LandingTypewrite__gridContentNestedWrapper--3 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	grid-row: 1/4;
+	position: relative;
+}
+
+.LandingMastHeader__textFormat {
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	font-size: 12vw;
+	line-height: 11vw;
+	color: #fff;
+	float: left;
+	clear: left;
+}
+.LandingMastSubheader__textFormat {
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	line-height: 1.75vw;
+	font-size: 1.5vw;
+	color: #fff;
+	animation-duration: 4s;
+	transition: opacity 0.4s cubic-bezier(0.2, 0.6, 0.4, 1);
+}
+.LandingSubheader--onboard {
+	animation-name: LandingSubheader--onboard;
+	animation-fill-mode: both;
+	animation-duration: 2.8s;
+	animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 1);
+}
+.LandingProgressBar__mainWrappingBar {
+	overflow: hidden;
+}
+
+.LandingProgressBar__mainWrappingBar {
+	width: 2px;
+	height: 25vh;
+	min-height: 220px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #fff;
+}
+.LandingTypewrite__gridContentNestedWrapper--3 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	grid-row: 1/4;
+	position: relative;
+}
+
+.LandingProgressBar__progressLevel {
+	top: 100%;
+	transform-origin: top;
+	transition: top 0.73s cubic-bezier(0.2, 0.6, 0.4, 1);
+	animation-duration: 3s;
+}
+.LandingProgressBar__progressLevel {
+	width: 100%;
+	height: 100%;
+	background: #d5333e;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.AnimLandingProgressBar {
+	animation-name: LandingProgressBarAnim;
+	animation-fill-mode: both;
+	animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+	top: 0;
+	transition: top 0s;
+	overflow: hidden;
+}
+@media only screen and (max-width: 1366px) {
+	.LandingProgressBar__mainWrappingBar {
+		height: 28.5vh;
+	}
+}
+@media only screen and (max-width: 980px) {
+	.LandingTypewrite__mainWrapper {
+		width: calc(100% - 60px);
+	}
+	.LandingTypewrite__gridWrapper {
+		-ms-grid-columns: 100%;
+		grid-template-columns: 100%;
+		-ms-grid-rows: auto -webkit-min-content 15px -webkit-min-content auto -webkit-min-content
+			5vh;
+		-ms-grid-rows: auto min-content 15px min-content auto min-content 5vh;
+		grid-template-rows: auto -webkit-min-content 15px -webkit-min-content auto -webkit-min-content 5vh;
+		grid-template-rows: auto min-content 15px min-content auto min-content 5vh;
+		-ms-grid-column: 1;
+		grid-column: 1;
+		padding-top: 10vh;
+	}
+	.LandingTypewrite__gridContentNestedWrapper--1 {
+		min-height: 58vw;
+	}
+	.LandingTypewrite__gridContentNestedWrapper--2 {
+		-ms-grid-column: 1;
+		grid-column: 1;
+		-ms-grid-row: 4;
+		grid-row: 4;
+	}
+	.LandingTypewrite__gridContentNestedWrapper--3 {
+		display: none !important;
+	}
+	.LandingMastHeader__textFormat {
+		font-size: 20vw;
+		line-height: 19vw;
+	}
+	.LandingMastSubheader__textFormat {
+		font-size: 3.5vw;
+		line-height: 4.5vw;
+		position: absolute;
+		padding-right: 5vw;
+	}
+}

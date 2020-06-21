@@ -1,4 +1,4 @@
-function Loading() {
+function Loading(cb) {
 	let loading = document.querySelector(
 		'.PageTransitionsPreloader__mainWrapper',
 	);
