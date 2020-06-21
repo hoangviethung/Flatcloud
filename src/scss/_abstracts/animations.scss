@@ -82,3 +82,17 @@
 		transform: translateZ(0);
 	}
 }
+
+@keyframes LandingTypewrite--onboard {
+	0% {
+		transform: scaleY(0.01) translate3d(0, 550px, 0) skew(-10deg, -30deg);
+		opacity: 0;
+		transform-origin: bottom left;
+	}
+
+	to {
+		transform: scaleX(1) translateZ(0) skew(0deg, 0deg);
+		opacity: 1;
+		transform-origin: bottom left;
+	}
+}

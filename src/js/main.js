@@ -303,14 +303,21 @@ function Index_TypingEffect() {
 	const TypeItProgressBar = document.querySelector(
 		'.LandingProgressBar__progressLevel',
 	);
+
+	const LandingMastHeaderTextEffects = Array.from(
+		document.querySelectorAll('.LandingMastHeader__textEffect'),
+	);
+
 	let sentencesArray = [
 		'Create<br>Bridges.',
 		'Build<br>Digital.',
 		'Make<br>Partners.',
-		'Make<br>Senses.',
+		'Make<br>Sense.',
 	];
 	let i = 1;
-
+	LandingMastHeaderTextEffects.forEach((item) => {
+		item.classList.add('LandingMastHeaderOnboardAnim__textItem');
+	});
 	if (TypeItProgressBar) {
 		TypeItProgressBar.classList.add('AnimLandingProgressBar');
 	}

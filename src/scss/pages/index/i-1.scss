@@ -111,6 +111,27 @@
 	transition: top 0s;
 	overflow: hidden;
 }
+
+.LandingMastHeaderOnboardAnim__textItem {
+	animation-name: LandingTypewrite--onboard;
+	animation-duration: 0.95s;
+	animation-fill-mode: backwards;
+	animation-timing-function: cubic-bezier(0.445, 0.74, 0.095, 1.185);
+}
+.LandingMastHeader__textEffect {
+	opacity: 0;
+	&.LandingMastHeaderOnboardAnim__textItem {
+		opacity: 1;
+	}
+}
+.LandingMastHeaderOnboardAnim__textItem.item-2 {
+	animation-delay: 0.1s;
+}
+
+.LandingMastHeaderOnboardAnim__textItem.item-3 {
+	animation-delay: 0.2s;
+}
+
 @media only screen and (max-width: 1366px) {
 	.LandingProgressBar__mainWrappingBar {
 		height: 28.5vh;
