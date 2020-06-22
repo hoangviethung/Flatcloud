@@ -176,20 +176,68 @@ function Index_SliderOnMobile() {
 }
 
 function Index_Navigation() {
-	if (window.innerWidth > 980) {
-		$('.LandingPagination__mainWrapper [data-scroll]').each(function () {
-			$(this).on('click', function (e) {
-				e.preventDefault();
-				const target = $(this).attr('data-scroll');
-				$('html,body').animate(
-					{
-						scrollTop:
-							$(`[data-scroll-id="${target}"]`).offset().top -
-							108,
-					},
-					1100,
-				);
+	let currentNumberString;
+	const isIndex = document.querySelector('.LandingPagination__mainWrapper');
+	if (isIndex) {
+		$('[data-scroll-to]').on('click', function (e) {
+			e.preventDefault();
+			const scrollToNumber = $(this).attr('data-scroll-to');
+			$('html,body').animate(
+				{
+					scrollTop:
+						$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+						108,
+				},
+				1200,
+			);
+		});
+		const activeSectionWhenScroll = () => {
+			$('[data-scroll-id]').each(function (index) {
+				if ($(document).scrollTop() >= $(this).offset().top - 108) {
+					const toId = $(this).attr('data-scroll-id');
+					$(`[data-scroll-to]`)
+						.find('.LandingPagination__text')
+						.removeClass('is--active');
+					$(`[data-scroll-to="${toId}"]`)
+						.find('.LandingPagination__text')
+						.addClass('is--active');
+					currentNumberString = '0' + (index + 1);
+				}
 			});
+		};
+
+		activeSectionWhenScroll();
+		$(
+			'.LandingPagination__displayWrapper .LandingPagination__text.is--active',
+		).html(currentNumberString);
+		$(window).on('scroll', function () {
+			activeSectionWhenScroll();
+			$(
+				'.LandingPagination__displayWrapper .LandingPagination__text.is--active',
+			).html(currentNumberString);
+		});
+
+		const quanque = localStorage.getItem('scrollToNumber');
+		if (quanque != null) {
+			localStorage.removeItem('scrollToNumber');
+			$(`[data-scroll-to="${quanque}"]`).triggerHandler('click');
+		}
+
+		$('body').on(
+			'click',
+			'#index-6-popup.fancybox-content .btn-close',
+			function () {
+				scrollToContactForm = true;
+				$.fancybox.close(true);
+			},
+		);
+	} else {
+		$('[data-scroll-to]').on('click', function (e) {
+			e.preventDefault();
+			const scrollToNumber = $(this).attr('data-scroll-to');
+			const href = $(this).attr('href');
+			localStorage.setItem('scrollToNumber', scrollToNumber);
+			window.location.href = href;
 		});
 	}
 }
