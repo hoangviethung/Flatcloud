@@ -8,6 +8,19 @@ block loading
 	include _templates/_layout/_loading
 block banner,breadcrumb
 block main
+	section.LandingPagination__mainWrapper
+		div
+			.LandingPagination__displayWrapper
+				p.LandingPagination__text.is--active 01
+				.LandingPagination__separator
+				p.LandingPagination__text 03
+			.LandingPagination__controlWrapper
+				.LandingPagination__controlItemWrapper(data-scroll="index-1")
+					p.LandingPagination__text.is--active 01
+				.LandingPagination__controlItemWrapper(data-scroll="index-2")
+					p.LandingPagination__text 02
+				.LandingPagination__controlItemWrapper(data-scroll="index-3")
+					p.LandingPagination__text 03
 	include _templates/index/i-1
 	include _templates/index/i-2
 	include _templates/index/i-3

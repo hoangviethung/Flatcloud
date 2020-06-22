@@ -175,6 +175,25 @@ function Index_SliderOnMobile() {
 	}
 }
 
+function Index_Navigation() {
+	if (window.innerWidth > 980) {
+		$('.LandingPagination__mainWrapper [data-scroll]').each(function () {
+			$(this).on('click', function (e) {
+				e.preventDefault();
+				const target = $(this).attr('data-scroll');
+				$('html,body').animate(
+					{
+						scrollTop:
+							$(`[data-scroll-id="${target}"]`).offset().top -
+							108,
+					},
+					1100,
+				);
+			});
+		});
+	}
+}
+
 function About_SliderOnMobile() {
 	if (window.innerWidth <= 980) {
 		$('.featuredAward__mainWrapper').addClass('slickCarousel');
@@ -388,16 +407,15 @@ function Index_TypingEffect() {
 }
 
 function Solutions_HoverEffect() {
-	$('.solutionsHeroGrid__gridItem')
-		.on('mouseenter', function (e) {
-			$(this).addClass('is--activeHover');
-			const index = $(this).index() / 2;
+	$('.solutionsHeroGrid__gridItem').each(function (index) {
+		$(this).on('mouseenter', function () {
+			const itemIndex = index;
 			$('.solutionsHeroGrid__gridItem').each(function () {
 				$(this)
 					.find('.solutionsHeroGrid__bgImg')
-					.each(function () {
-						$(this).removeClass('is-defaultState')
-						if ($(this).index() == index) {
+					.each(function (index) {
+						$(this).removeClass('is--defaultState');
+						if (index == itemIndex) {
 							$(this).removeClass('is--notMainIndexImage');
 							$(this).addClass('is--activeState');
 						} else {
@@ -406,22 +424,25 @@ function Solutions_HoverEffect() {
 						}
 					});
 			});
-		})
-		.on('mouseleave', function (e) {
-			$(this).removeClass('is--activeHover');
-			$('.solutionsHeroGrid__gridItem').each(function () {
+		});
+		$(this).on('mouseleave', function () {
+			$('.solutionsHeroGrid__gridItem').each(function (index) {
+				const itemIndex = index;
 				$(this)
 					.find('.solutionsHeroGrid__bgImg')
 					.each(function (index) {
 						$(this).removeClass('is--activeState');
-						$(this).removeClass('is--notMainIndexImage');
-						console.log(index);
-						if ($(this).index() == index) {
+						if (index == itemIndex) {
+							$(this).removeClass('is--notMainIndexImage');
 							$(this).addClass('is--defaultState');
+						} else {
+							$(this).removeClass('is--defaultState');
+							$(this).addClass('is--notMainIndexImage');
 						}
 					});
 			});
 		});
+	});
 }
 
 document.onkeyup = function (e) {
@@ -480,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	Index_SliderOnMobile();
+	Index_Navigation();
 	About_SliderOnMobile();
 	Solutions_HoverEffect();
 	if (Work_FilterToggleButton) {

@@ -18,7 +18,9 @@
 	display: inline-block;
 
 	&:not(:last-child) {
-		margin-bottom: 160px;
+		.fl-index-3__item {
+			margin-bottom: 160px;
+		}
 	}
 	&:last-child {
 		.fl-index-3__item {
@@ -64,6 +66,13 @@
 	img {
 		position: absolute;
 		top: 50%;
+	}
+	@media (max-width: 1270px) {
+		width: 40vw;
+		height: 40vw;
+		img {
+			max-height: 55vw;
+		}
 	}
 }
 

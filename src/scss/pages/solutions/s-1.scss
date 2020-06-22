@@ -163,6 +163,12 @@
 	animation-duration: 0.75s;
 	animation-fill-mode: backwards;
 }
+.solutionsHeroGrid__gridItem.is--activeHover:after,
+.solutionsHeroGrid__gridItem:hover:after,
+.solutionsHeroGrid__mobileGridItem.is--activeHover:after,
+.solutionsHeroGrid__mobileGridItem:hover:after {
+	background: rgba(0, 0, 0, 0.5);
+}
 
 @media (min-width: 800px) {
 	.solutionsHeroGrid__mainWrapper:before {
