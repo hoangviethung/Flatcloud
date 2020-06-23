@@ -361,17 +361,22 @@ function Work_ShowFilterButton() {
 		Work_FilterToggleButton.classList.remove('fl-workFilterBall--active');
 		Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
 		$('.fl-workFilterContainer__mainWrapper').removeClass('is--active');
+		const Work_FilterCloseIcon = document.querySelector(
+			'.filterCloseIco__mainWrapper',
+		);
+		setTimeout(() => {
+			Work_FilterCloseIcon.classList.add('filterCloseIcoAnim--onboard');
+		}, 300);
 	}
 }
 
 function Work_FilterToggle() {
-	let isOpen = false;
-	$(
+	const btnToggleFilter = document.querySelector(
 		'.fl-workFilterContainer__mainWrapper .fl-workFilterBall__mainWrapper',
-	).on('click', function () {
-		isOpen = !isOpen;
+	);
+	btnToggleFilter.addEventListener('click', () => {
 		$('.fl-workFilterContainer__mainWrapper').toggleClass('is--active');
-		if (isOpen) {
+		if ($('.fl-workFilterContainer__mainWrapper').hasClass('is--active')) {
 			Header_Hamburger.classList.remove('active');
 			Header_NavList.classList.remove('active');
 			Header_Social.classList.remove('active');
