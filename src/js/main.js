@@ -3,29 +3,24 @@ import MoveElement from './lib/MoveElement';
 import Loading from './lib/Loading';
 import TypeIt from 'typeit';
 // define variables
+
+const buttonTemplate__isClose = `
+	<div class="filterCloseIco__mainWrapper">
+		<span class="filterCloseIco__stroke"></span>
+		<span class="filterCloseIco__stroke"></span>
+	</div>
+`;
+
+const buttonTemplate__isOpen = `
+	<p class="fl-workFilterBall__text">Filter</p>
+`;
+
 const body = document.querySelector('body');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 const pageClassDefine = document.querySelector('#js-page-verify');
 
-const FormRequest_OtherReasonInputCheckbox = document.getElementById(
-	'reason-other',
-);
-const FormRequest_OtherReasonInput = document.getElementById(
-	'reason-other-input',
-);
-const FormRequest_NotSure = document.getElementById('not-sure');
-const FormRequest_WhatDo = Array.from(
-	document.querySelectorAll('.fl-modal-request__form .whatdo'),
-);
-const FormRequest_ButtonShow = document.querySelector(
-	'.fl-header__request-toggle',
-);
-const FormRequest_ButtonClose = document.querySelector(
-	'.fl-modal-request__close',
-);
-const FormRequest_Modal = document.querySelector('.fl-modal-request');
 const Header_NavList = document.querySelector('.fl-header__nav-list');
 const Header_Hamburger = document.querySelector(
 	'.fl-header__navigation-hamburger',
@@ -71,49 +66,6 @@ function addClassBody() {
 	}
 }
 
-function FormRequest_OtherReasonToggle() {
-	FormRequest_OtherReasonInputCheckbox.addEventListener('change', (e) => {
-		if (e.target.checked) {
-			FormRequest_OtherReasonInput.classList.add('active');
-		} else {
-			FormRequest_OtherReasonInput.classList.remove('active');
-		}
-	});
-}
-
-function FormRequest_NotSureInputHandler() {
-	FormRequest_NotSure.addEventListener('change', (e) => {
-		if (e.target.checked) {
-			FormRequest_WhatDo.forEach((item) => {
-				item.checked = false;
-			});
-			FormRequest_NotSure.checked = true;
-		}
-	});
-	FormRequest_WhatDo.forEach((item) => {
-		item.addEventListener('click', () => {
-			FormRequest_NotSure.checked = false;
-		});
-	});
-}
-
-function FormRequest_ModalToggle() {
-	FormRequest_ButtonShow.addEventListener('click', () => {
-		FormRequest_Modal.classList.add('active');
-		FormRequest_Modal.classList.remove('close');
-		main.classList.add('close');
-		header.classList.add('close');
-		footer.classList.add('close');
-	});
-	FormRequest_ButtonClose.addEventListener('click', () => {
-		FormRequest_Modal.classList.remove('active');
-		FormRequest_Modal.classList.add('close');
-		main.classList.remove('close');
-		header.classList.remove('close');
-		footer.classList.remove('close');
-	});
-}
-
 function Header_MobileToggle() {
 	let isOpen = false;
 	Header_Hamburger.addEventListener('click', () => {
@@ -122,12 +74,163 @@ function Header_MobileToggle() {
 			Header_Hamburger.classList.add('active');
 			Header_NavList.classList.add('active');
 			Header_Social.classList.add('active');
+			// Filter
+			if (Work_FilterToggleButton && Work_FilterWrapper) {
+				Work_FilterToggleButton.classList.add(
+					'fl-workFilterBallAnim--onboard',
+				);
+				Work_FilterToggleButton.classList.remove(
+					'fl-workFilterBallAnim--collapsed',
+				);
+				Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
+				Work_FilterWrapper.classList.add('is--collapsed');
+				Work_FilterWrapper.classList.remove('is--expanded');
+			}
 		} else {
 			Header_Hamburger.classList.remove('active');
 			Header_NavList.classList.remove('active');
 			Header_Social.classList.remove('active');
 		}
 	});
+}
+
+function AllForm_Toggle() {
+	const Header_ToggleFromRequestButton = document.querySelector(
+		'.fl-header__request-toggle',
+	);
+	const Footer_ToggleFromRequestButton = document.querySelector(
+		'.trusts__itemWrapper--request-a-quote',
+	);
+	const ToggleFromRequestButton = Array.of(
+		Header_ToggleFromRequestButton,
+		Footer_ToggleFromRequestButton,
+	);
+
+	const FormRequest_ButtonClose = Array.from(
+		document.querySelectorAll('.fl-modal-request__close'),
+	);
+	const Form_RequestAQuote = document.querySelector(
+		'.fl-modal-request.request-a-quote',
+	);
+	const Footer_ToggleFormCoIncubateButton = document.querySelector(
+		'.trusts__itemWrapper--co-incubate',
+	);
+	const Header_ToggleFormCoIncubate = document.querySelector(
+		'.fl-CoIncubate-toggle',
+	);
+
+	const ToggleFormCoIncubate = Array.of(
+		Footer_ToggleFormCoIncubateButton,
+		Header_ToggleFormCoIncubate,
+	);
+
+	const Form_CoIncubate = document.querySelector(
+		'.fl-modal-request.co-incubate',
+	);
+	const Footer_ToggleFormCustomiseButton = document.querySelector(
+		'.trusts__itemWrapper--customise',
+	);
+	const Form_Customise = document.querySelector(
+		'.fl-modal-request.customise',
+	);
+	const Footer_ToggleFormOrganiseButton = document.querySelector(
+		'.trusts__itemWrapper--organise',
+	);
+	const Form_Organise = document.querySelector('.fl-modal-request.organise');
+
+	const Form__CheckboxWrapper = Array.from(
+		document.querySelectorAll('.form-checkbox--wrapper'),
+	);
+
+	const FormRequest_Container = Array.from(
+		document.querySelectorAll('.fl-modal-request__form'),
+	);
+
+	ToggleFromRequestButton.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			Form_RequestAQuote.classList.add('active');
+			Form_RequestAQuote.classList.remove('close');
+			main.classList.add('close');
+			header.classList.add('close');
+			footer.classList.add('close');
+		});
+	});
+	ToggleFormCoIncubate.forEach((btn) => {
+		btn.addEventListener('click', (e) => {
+			e.preventDefault();
+			Form_CoIncubate.classList.add('active');
+			Form_CoIncubate.classList.remove('close');
+			main.classList.add('close');
+			header.classList.add('close');
+			footer.classList.add('close');
+		});
+	});
+	Footer_ToggleFormCustomiseButton.addEventListener('click', () => {
+		Form_Customise.classList.add('active');
+		Form_Customise.classList.remove('close');
+		main.classList.add('close');
+		header.classList.add('close');
+		footer.classList.add('close');
+	});
+	Footer_ToggleFormOrganiseButton.addEventListener('click', () => {
+		Form_Organise.classList.add('active');
+		Form_Organise.classList.remove('close');
+		main.classList.add('close');
+		header.classList.add('close');
+		footer.classList.add('close');
+	});
+
+	FormRequest_ButtonClose.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			btn.parentNode.classList.remove('active');
+			btn.parentNode.classList.add('close');
+			main.classList.remove('close');
+			header.classList.remove('close');
+			footer.classList.remove('close');
+		});
+	});
+	Form__CheckboxWrapper.forEach((form) => {
+		const Field_NotSure = form.querySelector('.not-sure');
+		const Field_WhatDo = Array.from(form.querySelectorAll('.whatdo'));
+
+		Field_NotSure.addEventListener('change', (e) => {
+			if (e.target.checked) {
+				Field_WhatDo.forEach((item) => {
+					item.checked = false;
+				});
+				Field_NotSure.checked = true;
+			}
+		});
+		Field_WhatDo.forEach((item) => {
+			item.addEventListener('click', () => {
+				Field_NotSure.checked = false;
+			});
+		});
+	});
+
+	FormRequest_Container.forEach((formContainer) => {
+		const Field_OtherCheck = formContainer.querySelector('.reason-other');
+		const Field_OtherInput = formContainer.querySelector(
+			'.reason-other-input',
+		);
+
+		Field_OtherCheck.addEventListener('change', (e) => {
+			if (e.target.checked) {
+				Field_OtherInput.classList.add('active');
+			} else {
+				Field_OtherInput.classList.remove('active');
+			}
+		});
+	});
+
+	// Change Content Form When Select Change
+	// const FormModal = Array.from(
+	// 	document.querySelectorAll('.fl-modal-request'),
+	// );
+	// FormModal.forEach((formModal) => {
+	// 	const formSelect = formModal.querySelector('.form-control--select');
+	// 	const formModalHtml = formModal.querySelector('.fl-modal-request__wrapper').innerHTML
+	// });
 }
 
 function Index_SliderOnMobile() {
@@ -216,29 +319,6 @@ function Index_Navigation() {
 				'.LandingPagination__displayWrapper .LandingPagination__text.is--active',
 			).html(currentNumberString);
 		});
-
-		const quanque = localStorage.getItem('scrollToNumber');
-		if (quanque != null) {
-			localStorage.removeItem('scrollToNumber');
-			$(`[data-scroll-to="${quanque}"]`).triggerHandler('click');
-		}
-
-		$('body').on(
-			'click',
-			'#index-6-popup.fancybox-content .btn-close',
-			function () {
-				scrollToContactForm = true;
-				$.fancybox.close(true);
-			},
-		);
-	} else {
-		$('[data-scroll-to]').on('click', function (e) {
-			e.preventDefault();
-			const scrollToNumber = $(this).attr('data-scroll-to');
-			const href = $(this).attr('href');
-			localStorage.setItem('scrollToNumber', scrollToNumber);
-			window.location.href = href;
-		});
 	}
 }
 
@@ -284,56 +364,68 @@ function Work_ShowFilterButton() {
 		Work_FilterToggleButton.classList.add('fl-workFilterBall--active');
 	} else {
 		Work_FilterToggleButton.classList.remove('fl-workFilterBall--active');
+		Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
+		$('.fl-workFilterContainer__mainWrapper').removeClass('is--active');
 	}
 }
 
 function Work_FilterToggle() {
 	let isOpen = false;
-
-	const buttonTemplate__isClose = `
-		<div class="filterCloseIco__mainWrapper">
-			<span class="filterCloseIco__stroke"></span>
-			<span class="filterCloseIco__stroke"></span>
-		</div>
-	`;
-
-	const buttonTemplate__isOpen = `
-		<p class="fl-workFilterBall__text">Filter</p>
-	`;
-
-	Work_FilterToggleButton.addEventListener('click', () => {
+	$(
+		'.fl-workFilterContainer__mainWrapper .fl-workFilterBall__mainWrapper',
+	).on('click', function () {
 		isOpen = !isOpen;
+		$('.fl-workFilterContainer__mainWrapper').toggleClass('is--active');
 		if (isOpen) {
 			Work_FilterToggleButton.innerHTML = buttonTemplate__isClose;
-
 			const Work_FilterCloseIcon = document.querySelector(
 				'.filterCloseIco__mainWrapper',
-			);
-			Work_FilterToggleButton.classList.add(
-				'fl-workFilterBallAnim--collapsed',
-			);
-			Work_FilterToggleButton.classList.remove(
-				'fl-workFilterBallAnim--onboard',
 			);
 			setTimeout(() => {
 				Work_FilterCloseIcon.classList.add(
 					'filterCloseIcoAnim--onboard',
 				);
 			}, 300);
-			Work_FilterWrapper.classList.remove('is--collapsed');
-			Work_FilterWrapper.classList.add('is--expanded');
 		} else {
-			Work_FilterToggleButton.classList.add(
-				'fl-workFilterBallAnim--onboard',
-			);
-			Work_FilterToggleButton.classList.remove(
-				'fl-workFilterBallAnim--collapsed',
-			);
 			Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
-			Work_FilterWrapper.classList.add('is--collapsed');
-			Work_FilterWrapper.classList.remove('is--expanded');
 		}
 	});
+
+	// Work_FilterToggleButton.addEventListener('click', () => {
+	// 	if (isOpen) {
+
+	// 		const Work_FilterCloseIcon = document.querySelector(
+	// 			'.filterCloseIco__mainWrapper',
+	// 		);
+	// 		setTimeout(() => {
+	// 			Work_FilterCloseIcon.classList.add(
+	// 				'filterCloseIcoAnim--onboard',
+	// 			);
+	// 		}, 300);
+	// 		Work_FilterToggleButton.classList.add(
+	// 			'fl-workFilterBallAnim--collapsed',
+	// 		);
+	// 		Work_FilterToggleButton.classList.remove(
+	// 			'fl-workFilterBallAnim--onboard',
+	// 		);
+	// 		Work_FilterWrapper.classList.remove('is--collapsed');
+	// 		Work_FilterWrapper.classList.add('is--expanded');
+	// 		// Header
+
+	// 		Header_Hamburger.classList.remove('active');
+	// 		Header_NavList.classList.remove('active');
+	// 		Header_Social.classList.remove('active');
+	// 	} else {
+	// 		Work_FilterToggleButton.classList.add(
+	// 			'fl-workFilterBallAnim--onboard',
+	// 		);
+	// 		Work_FilterToggleButton.classList.remove(
+	// 			'fl-workFilterBallAnim--collapsed',
+	// 		);
+	// 		Work_FilterWrapper.classList.add('is--collapsed');
+	// 		Work_FilterWrapper.classList.remove('is--expanded');
+	// 	}
+	// });
 }
 
 function WorkDetail_Slider() {
@@ -538,15 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	Header_MobileToggle();
 
-	FormRequest_ModalToggle();
-
-	if (FormRequest_OtherReasonInput) {
-		FormRequest_OtherReasonToggle();
-	}
-
-	if (FormRequest_NotSure) {
-		FormRequest_NotSureInputHandler();
-	}
+	AllForm_Toggle();
 
 	Index_SliderOnMobile();
 	Index_Navigation();

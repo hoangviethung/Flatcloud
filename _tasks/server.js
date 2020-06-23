@@ -20,7 +20,7 @@ const imageChangeTask = (path, stats) => {
 		.replace('src', '_dist')
 		.replace(
 			filePathnameGlob.split('/')[filePathnameGlob.split('/').length - 1],
-			''
+			'',
 		);
 	del(filePathnameGlob.replace('src', '_dist'));
 	console.log(`Copy: "${filePathnameGlob}"   =====>   "${destPathname}"`);
@@ -52,13 +52,14 @@ const server = () => {
 		return src(filePathnameGlob)
 			.pipe(
 				plumber(function (err) {
+					console.log(err);
 					this.emit('end');
-				})
+				}),
 			)
 			.pipe(
 				pug({
 					pretty: '\t',
-				})
+				}),
 			)
 			.pipe(dest('_dist'));
 	});
@@ -73,16 +74,17 @@ const server = () => {
 			return src(filePathnameGlob)
 				.pipe(
 					plumber(function (err) {
+						console.log(err);
 						this.emit('end');
-					})
+					}),
 				)
 				.pipe(
 					pug({
 						pretty: '\t',
-					})
+					}),
 				)
 				.pipe(dest('_dist'));
-		}
+		},
 	);
 
 	watch(['src/assets/**/**.**'], {
@@ -98,7 +100,7 @@ const server = () => {
 
 	watch(
 		['src/js/main.js', 'src/js/lib/**.js', 'src/js/util/**.js'],
-		series(jsTask)
+		series(jsTask),
 	);
 
 	watch(['src/js/**.js', '!src/js/main.js']).on('change', (path, stats) => {
@@ -109,7 +111,7 @@ const server = () => {
 				plumber(function (err) {
 					console.log(err);
 					this.emit('end');
-				})
+				}),
 			)
 			.pipe(sourcemap.init())
 			.pipe(babel())
@@ -117,7 +119,7 @@ const server = () => {
 			.pipe(
 				rename({
 					suffix: '.min',
-				})
+				}),
 			)
 			.pipe(sourcemap.write('.'))
 			.pipe(dest('_dist/js'));
@@ -127,7 +129,7 @@ const server = () => {
 
 	watch(
 		['_vendors.json', 'vendors/**/**.css', 'vendors/**/**.js'],
-		parallel(jsCore, cssCore)
+		parallel(jsCore, cssCore),
 	);
 	watch(['src/api/**.json', 'src/api/**.html'], series(fakeAPITask));
 

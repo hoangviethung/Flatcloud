@@ -6,6 +6,7 @@ const htmlTask = () => {
 	return src('src/**.pug')
 		.pipe(
 			plumber(function(err) {
+				console.log(err);
 				this.emit('end')
 			})
 		)
