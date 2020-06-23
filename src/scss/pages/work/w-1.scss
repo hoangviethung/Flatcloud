@@ -86,8 +86,6 @@
 		box-shadow 0.5s cubic-bezier(0.2, 0.6, 0.4, 1) 0.25s;
 
 	.fl-workFilterAndLegend__mainGridWrapper.fl-workFilterAndLegend--isVertical {
-		box-shadow: 0 7px 25px 2px rgba(0, 0, 0, 0.17),
-			0 10px 80px 5px rgba(0, 0, 0, 0.17);
 		padding-top: 30px;
 		.fl-workCategory__itemWrapper {
 			transform: translate3d(-50px, 0, 0);
@@ -100,6 +98,8 @@
 		transform: translate3d(0, 0, 0);
 
 		.fl-workFilterAndLegend__mainGridWrapper.fl-workFilterAndLegend--isVertical {
+			box-shadow: 0 7px 25px 2px rgba(0, 0, 0, 0.17),
+				0 10px 80px 5px rgba(0, 0, 0, 0.17);
 			.fl-workCategory__itemWrapper {
 				transform: translateZ(0);
 			}
