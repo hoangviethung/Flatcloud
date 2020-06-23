@@ -76,15 +76,10 @@ function Header_MobileToggle() {
 			Header_Social.classList.add('active');
 			// Filter
 			if (Work_FilterToggleButton && Work_FilterWrapper) {
-				Work_FilterToggleButton.classList.add(
-					'fl-workFilterBallAnim--onboard',
-				);
-				Work_FilterToggleButton.classList.remove(
-					'fl-workFilterBallAnim--collapsed',
-				);
 				Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
-				Work_FilterWrapper.classList.add('is--collapsed');
-				Work_FilterWrapper.classList.remove('is--expanded');
+				$('.fl-workFilterContainer__mainWrapper').removeClass(
+					'is--active',
+				);
 			}
 		} else {
 			Header_Hamburger.classList.remove('active');
@@ -377,6 +372,9 @@ function Work_FilterToggle() {
 		isOpen = !isOpen;
 		$('.fl-workFilterContainer__mainWrapper').toggleClass('is--active');
 		if (isOpen) {
+			Header_Hamburger.classList.remove('active');
+			Header_NavList.classList.remove('active');
+			Header_Social.classList.remove('active');
 			Work_FilterToggleButton.innerHTML = buttonTemplate__isClose;
 			const Work_FilterCloseIcon = document.querySelector(
 				'.filterCloseIco__mainWrapper',
