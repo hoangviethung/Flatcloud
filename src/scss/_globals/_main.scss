@@ -3,7 +3,7 @@
 @import 'tab';
 @import 'form';
 
-* {
+body {
 	&::-webkit-scrollbar {
 		display: none;
 	}

@@ -361,12 +361,12 @@ function Work_ShowFilterButton() {
 		Work_FilterToggleButton.classList.remove('fl-workFilterBall--active');
 		Work_FilterToggleButton.innerHTML = buttonTemplate__isOpen;
 		$('.fl-workFilterContainer__mainWrapper').removeClass('is--active');
-		const Work_FilterCloseIcon = document.querySelector(
-			'.filterCloseIco__mainWrapper',
-		);
-		setTimeout(() => {
-			Work_FilterCloseIcon.classList.add('filterCloseIcoAnim--onboard');
-		}, 300);
+		// const Work_FilterCloseIcon = document.querySelector(
+		// 	'.filterCloseIco__mainWrapper',
+		// );
+		// setTimeout(() => {
+		// 	Work_FilterCloseIcon.classList.add('filterCloseIcoAnim--onboard');
+		// }, 300);
 	}
 }
 
@@ -588,6 +588,84 @@ function Solutions_HoverEffect() {
 	});
 }
 
+function About_StaffSlider() {
+	const sliderPrev = document.querySelector('.aboutUsGrid__prev');
+	const sliderNext = document.querySelector('.aboutUsGrid__next');
+	const sliderContent = document.querySelector('.aboutUsGrid__mainWrapper');
+	if (sliderPrev) {
+		sliderPrev.addEventListener('click', () => {
+			sliderPrev.classList.add('disabled')
+			const items = sliderContent.querySelectorAll(
+				'.aboutUsGrid__gridItem',
+			);
+			const unitPerScroll = items[0].clientWidth;
+			let totalWidth = 0;
+			items.forEach((item) => {
+				totalWidth += item.clientWidth;
+			});
+			const itemPerShow = Math.floor(
+				sliderContent.clientWidth / unitPerScroll,
+			);
+
+			if (sliderContent.scrollLeft <= 0 + items.length) {
+				console.log(totalWidth - itemPerShow * unitPerScroll);
+				sliderContent.scroll({
+					left: totalWidth - itemPerShow * unitPerScroll,
+					behavior: 'smooth',
+				});
+			} else {
+				sliderContent.scroll({
+					left: sliderContent.scrollLeft - unitPerScroll,
+					behavior: 'smooth',
+				});
+			}
+			setTimeout(() => {
+				sliderPrev.classList.remove('disabled')
+			}, 400);
+		});
+	}
+	if (sliderNext) {
+		sliderNext.addEventListener('click', () => {
+			sliderNext.classList.add('disabled')
+			const items = sliderContent.querySelectorAll(
+				'.aboutUsGrid__gridItem',
+			);
+			let totalWidth = 0;
+			items.forEach((item) => {
+				totalWidth += item.clientWidth;
+			});
+			const unitPerScroll = items[0].clientWidth;
+			const itemPerShow = Math.floor(
+				sliderContent.clientWidth / unitPerScroll,
+			);
+
+			if (
+				sliderContent.scrollLeft >=
+				totalWidth - itemPerShow * unitPerScroll - items.length
+			) {
+				sliderContent.scroll({
+					left: 0,
+					behavior: 'smooth',
+				});
+			} else {
+				sliderContent.scroll({
+					left: sliderContent.scrollLeft + unitPerScroll,
+					behavior: 'smooth',
+				});
+			}
+			setTimeout(() => {
+				sliderNext.classList.remove('disabled')
+			}, 400);
+		});
+	}
+	window.addEventListener('resize', () => {
+		sliderContent.scroll({
+			left: 0,
+			behavior: 'smooth',
+		});
+	});
+}
+
 document.onkeyup = function (e) {
 	if (
 		(e = e || window.event).altKey &&
@@ -638,6 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	Index_SliderOnMobile();
 	Index_Navigation();
 	About_SliderOnMobile();
+	About_StaffSlider();
 	Solutions_HoverEffect();
 	if (Work_FilterToggleButton) {
 		Work_FilterToggle();

@@ -164,7 +164,12 @@
 }
 
 .clearfix:after {
-	content: "";
+	content: '';
 	clear: both;
 	display: table;
+}
+.disabled {
+	pointer-events: none;
+	opacity: 0.7;
+	cursor: pointer;
 }
