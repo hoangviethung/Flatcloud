@@ -354,7 +354,7 @@ function Work_ShowFilterButton() {
 	if (
 		Work_GridWrapper.getBoundingClientRect().top < 0 &&
 		Work_GridWrapper.getBoundingClientRect().bottom >
-			Work_FilterToggleButton.getBoundingClientRect().top
+		Work_FilterToggleButton.getBoundingClientRect().top
 	) {
 		Work_FilterToggleButton.classList.add('fl-workFilterBall--active');
 	} else {
@@ -608,7 +608,6 @@ function About_StaffSlider() {
 			);
 
 			if (sliderContent.scrollLeft <= 0 + items.length) {
-				console.log(totalWidth - itemPerShow * unitPerScroll);
 				sliderContent.scroll({
 					left: totalWidth - itemPerShow * unitPerScroll,
 					behavior: 'smooth',
@@ -659,10 +658,12 @@ function About_StaffSlider() {
 		});
 	}
 	window.addEventListener('resize', () => {
-		sliderContent.scroll({
-			left: 0,
-			behavior: 'smooth',
-		});
+		if (sliderContent) {
+			sliderContent.scroll({
+				left: 0,
+				behavior: 'smooth',
+			});
+		}
 	});
 }
 
@@ -726,7 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	WorkDetail_MobileMoveElement();
 });
 
-window.addEventListener('load', function () {});
+window.addEventListener('load', function () { });
 
 window.addEventListener('scroll', () => {
 	if (Work_GridWrapper) {
