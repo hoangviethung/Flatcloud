@@ -4,6 +4,9 @@ import { readFileSync } from 'graceful-fs'
 const copyFavicon = () => {
 	return src('favicon.ico').pipe(dest('_dist'))
 }
+const copyFaviconFolder = () => {
+	return src('src/favicon/**').pipe(dest('_dist/favicon'))
+}
 
 const copyAssets = () => {
 	return src('src/assets/**/**.{svg,png,jpg,jpeg,gif,mp4}').pipe(
@@ -21,6 +24,7 @@ const copyFonts = () => {
 
 module.exports = {
 	copyFavicon,
+	copyFaviconFolder,
 	copyAssets,
 	copyFonts,
 }

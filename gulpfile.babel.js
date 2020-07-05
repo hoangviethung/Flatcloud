@@ -2,7 +2,7 @@ import { series, parallel } from 'gulp';
 
 // Import tasks
 import { cleanDist } from './_tasks/clean';
-import { copyFavicon, copyFonts, copyAssets } from './_tasks/copy';
+import { copyFavicon, copyFonts, copyAssets, copyFaviconFolder } from './_tasks/copy';
 import { fakeAPITask } from './_tasks/api';
 import { jsTask, jsTask2 } from './_tasks/script';
 import { cssCore } from './_tasks/core-css';
@@ -13,7 +13,7 @@ import { server } from './_tasks/server';
 
 exports.default = series(
 	cleanDist,
-	parallel(copyFavicon, copyFonts, copyAssets, fakeAPITask),
+	parallel(copyFavicon, copyFaviconFolder, copyFonts, copyAssets, fakeAPITask),
 	parallel(cssCore, jsCore),
 	parallel(cssTask, jsTask, jsTask2),
 	htmlTask,
