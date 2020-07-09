@@ -471,10 +471,9 @@ function Index_TypingEffect() {
 	);
 
 	let sentencesArray = [
-		'Create<br>Bridges.',
-		'Build<br>Digital.',
-		'Make<br>Partners.',
-		'Make<br>Sense.',
+		"Tạo ra<br>Sự Khác Biệt",
+		"Tối ưu<br>Chi Phí Dự Án",
+		"Hình thành<br>Cầu Nối Liên Kết",
 	];
 	let i = 1;
 	LandingMastHeaderTextEffects.forEach((item) => {
@@ -686,7 +685,7 @@ document.onkeyup = function (e) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-	Loading(() => {
+	// Loading(() => {
 		if (document.querySelector('.Typist')) {
 			Index_TypingEffect();
 		}
@@ -704,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			resetAnimation: false, // reset animation on end (default is true)
 		});
 		wow.init();
-	});
+	// });
 
 	if (pageClassDefine) {
 		addClassBody();
