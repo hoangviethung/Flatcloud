@@ -1,0 +1,132 @@
+.fulfillYourRequest {
+	background-color: white;
+	padding-bottom: 130px;
+	@media (max-width: 1199.98px) {
+		padding-bottom: 100px;
+	}
+	@media (max-width: 767.98px) {
+		padding-bottom: 70px;
+	}
+}
+.fulfillYourRequestItem {
+	border-radius: 15px;
+	padding: 20px;
+	@media (min-width: 1025px) {
+		transition: all 0.3s ease;
+		&:hover {
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+		}
+	}
+}
+.fulfillYourRequestItem__content {
+	margin-top: 40px;
+	h4 {
+		font-size: 2.2rem;
+	}
+	p {
+		margin-top: 20px;
+		color: rgba(#333333, 0.5);
+		text-align: center;
+	}
+}
+.fulfillYourRequestItem__img{
+	img{
+		max-width: 100%;
+	}
+}
+
+
+
+.designProfessional {
+	background-color: white;
+	margin-top: -1px;
+	&.web-developement {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+.designProfessional__backgroundWrapper {
+	position: relative;
+}
+.designProfessional__backgroundImg {
+	z-index: 2;
+	position: relative;
+	width: 100%;
+	max-width: (135000% / 1920);
+	margin: 0 auto;
+	img {
+		width: 100%;
+	}
+	@media (max-width: 1024.98px) {
+		max-width: 90%;
+	}
+}
+.designProfessional__background {
+	position: absolute;
+	bottom: 20%;
+	left: -1px;
+	right: -1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img {
+		width: 100%;
+	}
+	&:before {
+		content: '';
+		background-color: map-get($color, main);
+		position: absolute;
+		top: 80%;
+		left: 0;
+		right: 0;
+		height: 100%;
+	}
+}
+
+.designProfessional__content {
+	padding-top: 80px;
+	padding-bottom: 130px;
+	background-color: map-get($color, main);
+	@media (max-width: 1199.98px) {
+		padding-top: 60px;
+		padding-bottom: 100px;
+	}
+	@media (max-width: 767.98px) {
+		padding-top: 40px;
+		padding-bottom: 70px;
+	}
+}
+.designProfessionalItem__col {
+	margin-top: 50px;
+	padding: 0 25px;
+}
+.designProfessionalItem {
+	display: flex;
+}
+.designProfessionalItem__img {
+	-ms-flex: 0 0 65px;
+	flex: 0 0 65px;
+	max-width: 65px;
+}
+.designProfessionalItem__content {
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	max-width: 100%;
+	padding-left: 15px;
+
+	h4,
+	p {
+		color: white;
+	}
+	h4 {
+		font-size: 2.2rem;
+	}
+	p {
+		margin-top: 8px;
+		font-size: 1.5rem;
+		letter-spacing: 0px;
+	}
+}

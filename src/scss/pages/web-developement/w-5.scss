@@ -1,0 +1,138 @@
+.commentFromCustomer {
+	background-color: white;
+	padding-bottom: 240px;
+	position: relative;
+	@media (max-width: 1199.98px) {
+		padding-top: 180px;
+		padding-bottom: 200px;
+	}
+	@media (max-width: 767.98px) {
+		padding-top: 110px;
+		padding-bottom: 160px;
+	}
+	.circle1 {
+		position: absolute;
+		width: 540px;
+		height: 540px;
+		border-radius: 50%;
+		background-color: map-get($color, main);
+		bottom: 0;
+		left: -270px;
+		@media (max-width: 1199.98px) {
+			width: 440px;
+			height: 440px;
+			left: -220px;
+		}
+		@media (max-width: 1024.98px) {
+			width: 360px;
+			height: 360px;
+			left: -180px;
+		}
+	}
+	.circle2 {
+		position: absolute;
+		width: 450px;
+		height: 450px;
+		border-radius: 50%;
+		background-color: map-get($color, main);
+		top: 30px;
+		right: -20px;
+		@media (max-width: 1199.98px) {
+			width: 350px;
+			height: 350px;
+		}
+		@media (max-width: 1024.98px) {
+			top: 20px;
+			width: 270px;
+			height: 270px;
+		}
+		@media (max-width: 767.98px) {
+			width: 180px;
+			height: 180px;
+			right: -90px;
+		}
+	}
+	// &.web-developement{
+	// 	@media (min-width: 1025px) {
+	// 		padding-top: 0;
+	// 	}
+	// }
+}
+
+.commentFromCustomer__title {
+	margin-bottom: 40px;
+	p {
+		margin-top: 40px;
+		@media (max-width: 1024.98px) {
+			margin-top: 30px;
+		}
+		@media (max-width: 767.98px) {
+			margin-top: 20px;
+		}
+	}
+	@media (min-width: 1025px) {
+		margin-bottom: 0;
+		max-width: 570px;
+	}
+}
+
+.commentFromCustomerItem {
+	background-color: white;
+	display: flex;
+	padding: 30px 50px 60px 50px;
+	box-shadow: 0 0 10px rgba(black, 0.15);
+	border-radius: 15px;
+	position: relative;
+	transition: all 0.3s ease;
+	+ .commentFromCustomerItem {
+		margin-top: 35px;
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 35px;
+		width: 33px;
+		height: 25px;
+		background-image: url('../assets/web-developement/comment-icon.svg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	@media (min-width: 1025px) {
+		&:hover {
+			box-shadow: 0 4px 10px rgba(black, 0.25);
+		}
+	}
+	@media (max-width: 1024.98px) {
+		padding: 20px;
+	}
+	@media (max-width: 767.98px) {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+.commentFromCustomerItem__img {
+	border-radius: 50%;
+	-ms-flex: 0 0 85px;
+	flex: 0 0 85px;
+	max-width: 85px;
+}
+.commentFromCustomerItem__content {
+	padding-left: 30px;
+	h4 {
+		font-size: 2rem;
+		font-weight: 900;
+	}
+	p {
+		margin-top: 20px;
+		font-size: 1.6rem;
+		color: rgba(#333333, 0.5);
+		line-height: 1.5;
+	}
+	@media (max-width: 767.98px) {
+		margin-top: 15px;
+		padding-left: 0;
+	}
+}

@@ -1,6 +1,5 @@
 // Import Libraries
 import MoveElement from './lib/MoveElement';
-import Loading from './lib/Loading';
 import TypeIt from 'typeit';
 // define variables
 
@@ -19,7 +18,6 @@ const body = document.querySelector('body');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
-const pageClassDefine = document.querySelector('#js-page-verify');
 
 const Header_NavList = document.querySelector('.fl-header__nav-list');
 const Header_Hamburger = document.querySelector(
@@ -60,10 +58,8 @@ function b64DecodeUnicode(e) {
 }
 
 function addClassBody() {
-	if (pageClassDefine.classList.length > 0) {
-		const bodyClass = pageClassDefine.getAttribute('class');
-		body.classList.add(bodyClass);
-	}
+	const className = $('#js-page-verify').attr('class');
+	$('body').addClass(className);
 }
 
 function Header_MobileToggle() {
@@ -354,7 +350,7 @@ function Work_ShowFilterButton() {
 	if (
 		Work_GridWrapper.getBoundingClientRect().top < 0 &&
 		Work_GridWrapper.getBoundingClientRect().bottom >
-		Work_FilterToggleButton.getBoundingClientRect().top
+			Work_FilterToggleButton.getBoundingClientRect().top
 	) {
 		Work_FilterToggleButton.classList.add('fl-workFilterBall--active');
 	} else {
@@ -469,12 +465,16 @@ function Index_TypingEffect() {
 	const LandingMastHeaderTextEffects = Array.from(
 		document.querySelectorAll('.LandingMastHeader__textEffect'),
 	);
-
-	let sentencesArray = [
-		"Tạo ra<br>Sự Khác Biệt",
-		"Tối ưu<br>Chi Phí Dự Án",
-		"Hình thành<br>Cầu Nối Liên Kết",
-	];
+	let sentencesArray;
+	if (sentences.length > 0) {
+		sentencesArray = sentences;
+	} else {
+		sentencesArray = [
+			'Tạo ra<br>Sự Khác Biệt',
+			'Tối ưu<br>Chi Phí Dự Án',
+			'Hình thành<br>Cầu Nối Liên Kết',
+		];
+	}
 	let i = 1;
 	LandingMastHeaderTextEffects.forEach((item) => {
 		item.classList.add('LandingMastHeaderOnboardAnim__textItem');
@@ -593,7 +593,7 @@ function About_StaffSlider() {
 	const sliderContent = document.querySelector('.aboutUsGrid__mainWrapper');
 	if (sliderPrev) {
 		sliderPrev.addEventListener('click', () => {
-			sliderPrev.classList.add('disabled')
+			sliderPrev.classList.add('disabled');
 			const items = sliderContent.querySelectorAll(
 				'.aboutUsGrid__gridItem',
 			);
@@ -618,13 +618,13 @@ function About_StaffSlider() {
 				});
 			}
 			setTimeout(() => {
-				sliderPrev.classList.remove('disabled')
+				sliderPrev.classList.remove('disabled');
 			}, 400);
 		});
 	}
 	if (sliderNext) {
 		sliderNext.addEventListener('click', () => {
-			sliderNext.classList.add('disabled')
+			sliderNext.classList.add('disabled');
 			const items = sliderContent.querySelectorAll(
 				'.aboutUsGrid__gridItem',
 			);
@@ -652,7 +652,7 @@ function About_StaffSlider() {
 				});
 			}
 			setTimeout(() => {
-				sliderNext.classList.remove('disabled')
+				sliderNext.classList.remove('disabled');
 			}, 400);
 		});
 	}
@@ -663,6 +663,16 @@ function About_StaffSlider() {
 				behavior: 'smooth',
 			});
 		}
+	});
+}
+
+function WebDevFaq() {
+	$('.faq-developementItem__title').on('click', function () {
+		$(this).toggleClass('active');
+		$(this)
+			.parents('.faq-developementItem')
+			.find('.faq-developementItem__content')
+			.slideToggle();
 	});
 }
 
@@ -686,28 +696,26 @@ document.onkeyup = function (e) {
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Loading(() => {
-		if (document.querySelector('.Typist')) {
-			Index_TypingEffect();
-		}
+	if (document.querySelector('.Typist')) {
+		Index_TypingEffect();
+	}
 
-		var wow = new WOW({
-			boxClass: 'wow', // animated element css class (default is wow)
-			animateClass: 'animated', // animation css class (default is animated)
-			offset: 0, // distance to the element when triggering the animation (default is 0)
-			mobile: false, // trigger animations on mobile devices (default is true)
-			live: true, // act on asynchronously loaded content (default is true)
-			callback: function (box) {
-				// the callback is fired every time an animation is started
-				// the argument that is passed in is the DOM node being animated
-			},
-			resetAnimation: false, // reset animation on end (default is true)
-		});
-		wow.init();
+	var wow = new WOW({
+		boxClass: 'wow', // animated element css class (default is wow)
+		animateClass: 'animated', // animation css class (default is animated)
+		offset: 0, // distance to the element when triggering the animation (default is 0)
+		mobile: false, // trigger animations on mobile devices (default is true)
+		live: true, // act on asynchronously loaded content (default is true)
+		callback: function (box) {
+			// the callback is fired every time an animation is started
+			// the argument that is passed in is the DOM node being animated
+		},
+		resetAnimation: false, // reset animation on end (default is true)
+	});
+	wow.init();
 	// });
 
-	if (pageClassDefine) {
-		addClassBody();
-	}
+	addClassBody();
 
 	Header_MobileToggle();
 
@@ -724,9 +732,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	WorkDetail_Slider();
 
 	WorkDetail_MobileMoveElement();
+	WebDevFaq();
 });
 
-window.addEventListener('load', function () { });
+window.addEventListener('load', function () {});
 
 window.addEventListener('scroll', () => {
 	if (Work_GridWrapper) {

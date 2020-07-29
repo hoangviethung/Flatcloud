@@ -1,0 +1,24 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Chi tiết thiết kế web';
+	- let bodyClass = 'index-page web-developement-page';
+
+block loading
+	include _templates/_layout/_loading
+block banner,breadcrumb
+block main
+	include _templates/web-developement/w-1
+	include _templates/web-developement/w-2
+	include _templates/web-developement/w-3
+	include _templates/web-developement/w-4
+	include _templates/web-developement/w-5
+	include _templates/web-developement/w-6
+block scripts
+	script.
+		var sentences = [
+			"Thiết kế website <br>tối giản 2",
+			"Thiết kế website <br>tối giản 3",
+			"Thiết kế website <br>tối giản 4",
+			"Thiết kế website <br>tối giản 1",
+		]
