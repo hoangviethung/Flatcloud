@@ -250,7 +250,7 @@ header {
 }
 
 body {
-	&:not(.index-page) {
+	&:not(.index-page):not(.news-page):not(.news-detail-page) {
 		header {
 			background-color: map-get($color, white);
 		}
@@ -274,7 +274,9 @@ body {
 			}
 		}
 	}
-	&.index-page {
+	&.index-page,
+	&.news-page,
+	&.news-detail-page {
 		header {
 			background-color: map-get($color, main);
 		}

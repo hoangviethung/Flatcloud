@@ -1,5 +1,8 @@
 {
-	"fonts": ["src/fonts/**"],
+	"fonts": [
+		"src/fonts/**",
+		"node_modules/linearicons/dist/web-font/fonts/**"
+	],
 
 	"js": [
 		"node_modules/jquery/dist/jquery.js",

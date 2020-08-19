@@ -1,0 +1,45 @@
+.paginationItem__url {
+	display: flex;
+	align-items: center;
+	height: 45px;
+	padding: 0 20px;
+	font-size: 1.5rem;
+	@media (max-width: 1199.98px) {
+		padding: 0 15px;
+		height: 40px;
+	}
+	@media (max-width: 767.98px) {
+		padding: 0 10px;
+		height: 35px;
+	}
+}
+.paginationWrapper {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+.pagination {
+	background-color: map-get($color, white);
+	border-radius: 5px;
+	overflow: hidden;
+	border: 1px solid #d3d2d2;
+}
+.paginationItem {
+	transition: all .3s ease;
+	+ .paginationItem {
+		border-left: 1px solid #d3d2d2;
+	}
+	&:not(.paginationItem__prev):not(.paginationItem__next) {
+		color: rgba(#222222, 0.2);
+		&.active {
+			.paginationItem__url {
+				color: #222222;
+			}
+		}
+	}
+	@media (min-width: 1025px) {
+		&:hover {
+			background-color: rgba(#222222, 0.1);
+		}
+	}
+}

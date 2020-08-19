@@ -145,7 +145,6 @@ a:hover {
 
 main {
 	min-height: 100vh;
-	// background-color: map-get($color, main);
 }
 
 main,
@@ -174,25 +173,6 @@ footer {
 	}
 }
 
-.clearfix {
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-}
-
-.desktop {
-	@media (max-width: 1024.98px) {
-		display: none !important;
-	}
-}
-
-.mobile {
-	@media (min-width: 1025px) {
-		display: none !important;
-	}
-}
 .slickCarousel {
 	.slick-slide {
 		float: left;

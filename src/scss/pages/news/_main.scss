@@ -1,0 +1,9 @@
+@import 'n-1';
+@import 'n-2';
+body.news-page {
+	padding-top: 108px;
+	background-color: map-get($color, main);
+	@media (max-width: 1024.98px) {
+		padding-top: 73px;
+	}
+}

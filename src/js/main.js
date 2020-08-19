@@ -676,6 +676,42 @@ function WebDevFaq() {
 	});
 }
 
+function newsHotSlider() {
+	$('.newsHot__Slider').slick({
+		dots: false,
+		infinite: true,
+		arrows: true,
+		autoplay: false,
+		speed: 750,
+		initialSlide: 0,
+		slidesToShow: 3,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 2,
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					dots: true,
+					arrows: false,
+					slidesToShow: 2,
+				},
+			},
+			{
+				breakpoint: 576,
+				settings: {
+					dots: true,
+					slidesToShow: 1,
+					arrows: false,
+				},
+			},
+		],
+	});
+}
+
 document.onkeyup = function (e) {
 	if (
 		(e = e || window.event).altKey &&
@@ -699,7 +735,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (document.querySelector('.Typist')) {
 		Index_TypingEffect();
 	}
-
+	// Globals
+	addClassBody();
+	Header_MobileToggle();
+	AllForm_Toggle();
+	// Index
+	Index_SliderOnMobile();
+	Index_Navigation();
+	// About
+	About_SliderOnMobile();
+	About_StaffSlider();
+	// Solutions
+	Solutions_HoverEffect();
+	// Works
+	if (Work_FilterToggleButton) {
+		Work_FilterToggle();
+	}
+	WorkDetail_Slider();
+	WorkDetail_MobileMoveElement();
+	WebDevFaq();
+	// News
+	newsHotSlider();
+	// effect show on scroll
 	var wow = new WOW({
 		boxClass: 'wow', // animated element css class (default is wow)
 		animateClass: 'animated', // animation css class (default is animated)
@@ -713,26 +770,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		resetAnimation: false, // reset animation on end (default is true)
 	});
 	wow.init();
-	// });
-
-	addClassBody();
-
-	Header_MobileToggle();
-
-	AllForm_Toggle();
-
-	Index_SliderOnMobile();
-	Index_Navigation();
-	About_SliderOnMobile();
-	About_StaffSlider();
-	Solutions_HoverEffect();
-	if (Work_FilterToggleButton) {
-		Work_FilterToggle();
-	}
-	WorkDetail_Slider();
-
-	WorkDetail_MobileMoveElement();
-	WebDevFaq();
 });
 
 window.addEventListener('load', function () {});
