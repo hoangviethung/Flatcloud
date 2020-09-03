@@ -466,8 +466,8 @@ function Index_TypingEffect() {
 		document.querySelectorAll('.LandingMastHeader__textEffect'),
 	);
 	let sentencesArray;
-	if (sentences.length > 0) {
-		sentencesArray = sentences;
+	if (window.sentences) {
+		sentencesArray = window.sentences;
 	} else {
 		sentencesArray = [
 			'Tạo ra<br>Sự Khác Biệt',
