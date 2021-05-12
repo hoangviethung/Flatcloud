@@ -84,7 +84,7 @@
 		"pixi.js": "^5.2.4",
 		"rxjs": "^6.5.5",
 		"slick-carousel": "^1.8.1",
-		"swiper": "^5.4.5",
+		"swiper": "^6.5.1",
 		"typeit": "^7.0.4",
 		"wow.js": "^1.2.2"
 	},
